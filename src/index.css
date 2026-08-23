@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-surface-hover: hsl(var(--surface-hover));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+}
+
+:root {
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --surface-hover: 0 0% 10%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  --accent: 0 0% 96%;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--stroke));
+  }
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--text));
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Focus-visible accessibility outline */
+  :focus-visible {
+    outline: 2px solid #4E85BF;
+    outline-offset: 2px;
+  }
+}
+
+/* Desktop fine pointer custom cursor hiding default pointer */
+@media (pointer: fine) {
+  body, a, button, [role="button"], article, input, textarea, select {
+    cursor: none !important;
+  }
+}
+
+.font-display {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+
+.accent-text-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accent-border-gradient {
+  border-image: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%) 1;
+}
+
+.accent-glow {
+  box-shadow: 0 0 25px -5px rgba(137, 170, 204, 0.2);
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F1F1F;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
