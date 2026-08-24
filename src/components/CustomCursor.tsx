@@ -10,13 +10,13 @@ export const CustomCursor: React.FC = () => {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smooth springs for interpolation delay
-  const springConfig = { damping: 28, stiffness: 350, mass: 0.5 };
+  // Crisp low-lag spring physics for 16px solid dot
+  const springConfig = { damping: 32, stiffness: 450, mass: 0.2 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Check if pointer is fine (desktop mouse)
+    // Desktop fine-pointer check
     const mediaQuery = window.matchMedia('(pointer: fine)');
     setIsPointerFine(mediaQuery.matches);
 
@@ -28,7 +28,6 @@ export const CustomCursor: React.FC = () => {
 
     if (!mediaQuery.matches) return;
 
-    // Mouse position tracking
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -68,18 +67,18 @@ export const CustomCursor: React.FC = () => {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed top-0 left-0 w-7 h-7 rounded-full bg-white pointer-events-none z-[99999] mix-blend-difference select-none"
+      className="fixed top-0 left-0 w-4 h-4 rounded-full bg-white pointer-events-none z-[99999] select-none"
       style={{
         x: cursorX,
         y: cursorY,
         translateX: '-50%',
         translateY: '-50%',
         opacity: isVisible ? 1 : 0,
-        scale: isHovered ? 1.5 : 1, // 28px default -> 42px interactive hover
+        scale: isHovered ? 1.375 : 1, // 16px default -> 22px interactive hover
       }}
       transition={{
-        scale: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
-        opacity: { duration: 0.2 },
+        scale: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] },
+        opacity: { duration: 0.15 },
       }}
     />
   );
