@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const CustomCursor: React.FC = () => {
+  const cursorRef = useRef<HTMLDivElement>(null);
   const [isPointerFine, setIsPointerFine] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Mouse position motion values
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
-
-  // Crisp low-lag spring physics for tiny 10px solid dot
-  const springConfig = { damping: 32, stiffness: 450, mass: 0.2 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     // Desktop fine-pointer check
@@ -28,24 +17,56 @@ export const CustomCursor: React.FC = () => {
 
     if (!mediaQuery.matches) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+    let animationFrameId: number;
+    let targetX = -100;
+    let targetY = -100;
+    let currentX = -100;
+    let currentY = -100;
+    let isVisible = false;
+
+    // Fast rAF loop with high lerp factor for instant 0-lag GPU transform updates
+    const updatePosition = () => {
+      currentX += (targetX - currentX) * 0.65;
+      currentY += (targetY - currentY) * 0.65;
+
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+      }
+      animationFrameId = requestAnimationFrame(updatePosition);
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      if (!isVisible && cursorRef.current) {
+        isVisible = true;
+        cursorRef.current.style.opacity = '1';
+      }
+    };
 
-    // Detect hover state over interactive targets
+    const handleMouseLeave = () => {
+      isVisible = false;
+      if (cursorRef.current) cursorRef.current.style.opacity = '0';
+    };
+
+    const handleMouseEnter = () => {
+      isVisible = true;
+      if (cursorRef.current) cursorRef.current.style.opacity = '1';
+    };
+
+    // Toggle 14px scale class directly on DOM element without React re-renders
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!target) return;
+      if (!target || !cursorRef.current) return;
 
       const isInteractive =
         target.closest('a, button, [role="button"], input, textarea, select, article, .group') !== null;
 
-      setIsHovered(isInteractive);
+      if (isInteractive) {
+        cursorRef.current.classList.add('scale-140');
+      } else {
+        cursorRef.current.classList.remove('scale-140');
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -53,33 +74,25 @@ export const CustomCursor: React.FC = () => {
     window.addEventListener('mouseenter', handleMouseEnter);
     window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
+    animationFrameId = requestAnimationFrame(updatePosition);
+
     return () => {
       mediaQuery.removeEventListener('change', handleMediaChange);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('mouseenter', handleMouseEnter);
       window.removeEventListener('mouseover', handleMouseOver);
+      cancelAnimationFrame(animationFrameId);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, []);
 
   if (!isPointerFine) return null;
 
   return (
-    <motion.div
+    <div
+      ref={cursorRef}
       aria-hidden="true"
-      className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-white pointer-events-none z-[99999] select-none"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        translateX: '-50%',
-        translateY: '-50%',
-        opacity: isVisible ? 1 : 0,
-        scale: isHovered ? 1.4 : 1, // 10px default -> max 14px interactive hover
-      }}
-      transition={{
-        scale: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] },
-        opacity: { duration: 0.15 },
-      }}
+      className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-white pointer-events-none z-[99999] select-none opacity-0 transition-transform duration-150 ease-out [&.scale-140]:scale-[1.4]"
     />
   );
 };

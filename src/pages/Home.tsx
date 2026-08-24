@@ -28,8 +28,8 @@ export const Home: React.FC<HomeProps> = ({ isLoaded }) => {
         <About />
         <Stack />
         <Contact />
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 };
