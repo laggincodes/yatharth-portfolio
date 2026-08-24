@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import gsap from 'gsap';
 
 export const Contact: React.FC = () => {
@@ -61,20 +62,23 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Clean Vertical Action Rows with Thin Dividers */}
+          {/* Right Column: Clean Vertical Action Rows with Vector Icons */}
           <div className="lg:col-span-6 w-full space-y-0 divide-y divide-[#1F1F1F]">
             {/* Row 1: Email */}
             <a
               href="mailto:yathusaini10@gmail.com"
               className="group flex items-center justify-between py-6 transition-colors hover:border-[#4E85BF]/60"
             >
-              <div className="space-y-1 transition-transform duration-300 group-hover:translate-x-1">
-                <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
-                  Email
-                </span>
-                <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
-                  yathusaini10@gmail.com
-                </span>
+              <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1">
+                <Mail size={20} className="text-[#878787] group-hover:text-[#4E85BF] transition-colors shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
+                    Email
+                  </span>
+                  <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
+                    yathusaini10@gmail.com
+                  </span>
+                </div>
               </div>
 
               <div className="w-10 h-10 rounded-full border border-[#1F1F1F] group-hover:border-[#4E85BF] flex items-center justify-center text-[#878787] group-hover:text-white transition-all duration-300">
@@ -89,13 +93,16 @@ export const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className="group flex items-center justify-between py-6 transition-colors hover:border-[#4E85BF]/60"
             >
-              <div className="space-y-1 transition-transform duration-300 group-hover:translate-x-1">
-                <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
-                  GitHub
-                </span>
-                <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
-                  @laggincodes
-                </span>
+              <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1">
+                <GithubIcon size={20} className="text-[#878787] group-hover:text-[#4E85BF] transition-colors shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
+                    GitHub
+                  </span>
+                  <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
+                    @laggincodes
+                  </span>
+                </div>
               </div>
 
               <div className="w-10 h-10 rounded-full border border-[#1F1F1F] group-hover:border-[#4E85BF] flex items-center justify-center text-[#878787] group-hover:text-white transition-all duration-300">
@@ -110,13 +117,16 @@ export const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className="group flex items-center justify-between py-6 border-b border-[#1F1F1F] transition-colors hover:border-[#4E85BF]/60"
             >
-              <div className="space-y-1 transition-transform duration-300 group-hover:translate-x-1">
-                <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
-                  LinkedIn
-                </span>
-                <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
-                  Yatharth Saini
-                </span>
+              <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1">
+                <LinkedinIcon size={20} className="text-[#878787] group-hover:text-[#4E85BF] transition-colors shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono text-[#878787] uppercase tracking-widest block">
+                    LinkedIn
+                  </span>
+                  <span className="text-lg md:text-xl font-medium text-[#F4F4F4] group-hover:text-white transition-colors">
+                    Yatharth Saini
+                  </span>
+                </div>
               </div>
 
               <div className="w-10 h-10 rounded-full border border-[#1F1F1F] group-hover:border-[#4E85BF] flex items-center justify-center text-[#878787] group-hover:text-white transition-all duration-300">

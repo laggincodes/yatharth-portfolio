@@ -10,7 +10,7 @@ export const CustomCursor: React.FC = () => {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Crisp low-lag spring physics for 16px solid dot
+  // Crisp low-lag spring physics for tiny 10px solid dot
   const springConfig = { damping: 32, stiffness: 450, mass: 0.2 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
@@ -67,14 +67,14 @@ export const CustomCursor: React.FC = () => {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed top-0 left-0 w-4 h-4 rounded-full bg-white pointer-events-none z-[99999] select-none"
+      className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-white pointer-events-none z-[99999] select-none"
       style={{
         x: cursorX,
         y: cursorY,
         translateX: '-50%',
         translateY: '-50%',
         opacity: isVisible ? 1 : 0,
-        scale: isHovered ? 1.375 : 1, // 16px default -> 22px interactive hover
+        scale: isHovered ? 1.4 : 1, // 10px default -> max 14px interactive hover
       }}
       transition={{
         scale: { duration: 0.15, ease: [0.25, 0.1, 0.25, 1] },
