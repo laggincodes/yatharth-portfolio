@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Command } from 'lucide-react';
 import { useScroll } from '../hooks/useScroll';
@@ -16,35 +16,23 @@ const NAV_ITEMS = [
 export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
   const { scrolled } = useScroll();
   const [activeSection, setActiveSection] = useState('hero');
-  const activeSectionRef = useRef('hero');
 
-  // Track active section on scroll with rAF throttling & state change guard
+  // Track active section on scroll
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const sections = ['hero', 'work', 'about', 'contact'];
-          const scrollPosition = window.scrollY + 200;
+      const sections = ['hero', 'work', 'about', 'contact'];
+      const scrollPosition = window.scrollY + 200;
 
-          for (const section of sections) {
-            const el = document.getElementById(section);
-            if (el) {
-              const top = el.offsetTop;
-              const height = el.offsetHeight;
-              if (scrollPosition >= top && scrollPosition < top + height) {
-                if (activeSectionRef.current !== section) {
-                  activeSectionRef.current = section;
-                  setActiveSection(section);
-                }
-                break;
-              }
-            }
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section);
+            break;
           }
-          ticking = false;
-        });
-        ticking = true;
+        }
       }
     };
 
@@ -69,11 +57,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
         {/* Logo: 9x9 Circle with Accent Ring */}
         <a
           href="#hero"
-          className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-[#0A0A0A] border border-[#1F1F1F] hover:border-[#58C7D9]/60 transition-transform duration-300 hover:scale-105"
+          className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-[#0A0A0A] border border-[#1F1F1F] transition-transform duration-300 hover:scale-105"
           aria-label="Yatharth Saini Home"
         >
-          {/* Subtle Gradient Accent Ring */}
-          <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#58C7D9] via-[#4E85BF] to-[#8B7CFF] opacity-40 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-[1px]" />
+          {/* Subtle Accent Ring */}
+          <div className="absolute -inset-[1px] rounded-full accent-gradient opacity-40 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-[1px]" />
           <span className="text-xs font-bold tracking-tight text-[#F4F4F4] group-hover:text-white transition-colors">
             YS
           </span>
@@ -91,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
                 href={item.href}
                 className={`relative px-3 py-1.5 text-xs md:text-sm font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'text-[#58C7D9] bg-[#58C7D9]/10 border border-[#58C7D9]/20'
+                    ? 'text-[#F4F4F4] bg-[#1F1F1F]/80'
                     : 'text-[#878787] hover:text-[#F4F4F4] hover:bg-[#1F1F1F]/40'
                 }`}
               >
@@ -105,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-1.5 text-xs text-[#878787] hover:text-[#58C7D9] transition-colors inline-flex items-center gap-1"
+            className="px-2.5 py-1.5 text-xs text-[#878787] hover:text-[#F4F4F4] transition-colors inline-flex items-center gap-1"
             title="View Resume"
           >
             <span>Resume</span>
@@ -118,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
         {/* Command Menu Button */}
         <button
           onClick={onOpenCommandMenu}
-          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 text-xs text-[#878787] hover:text-[#58C7D9] bg-[#0A0A0A]/50 hover:bg-[#1F1F1F] rounded-full border border-[#1F1F1F] transition-all duration-200"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 text-xs text-[#878787] hover:text-[#F4F4F4] bg-[#0A0A0A]/50 hover:bg-[#1F1F1F] rounded-full border border-[#1F1F1F] transition-all duration-200"
           title="Open Command Menu (Cmd+K)"
         >
           <Command size={12} />

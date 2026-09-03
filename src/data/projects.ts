@@ -22,32 +22,6 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'echotutor',
-    title: 'EchoTutor',
-    category: 'AI · VOICE · EDUCATION',
-    description: 'An AI voice co-teacher for live digital classrooms, built around real-time conversational interaction.',
-    technologies: ['React', 'TypeScript', 'Next.js', 'Agora', 'Conversational AI', 'Gemini', 'Voice AI'],
-    role: 'Creator & Developer',
-    status: 'AI Voice Co-Teacher',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
-    github: 'https://github.com/laggincodes/EchoTutor.git',
-    featured: true,
-    gridSpan: 'md:col-span-12',
-    caseStudy: {
-      overview: 'An AI voice co-teacher designed for live digital classrooms, using real-time conversational interaction to support classroom participation and learning.',
-      howItWorks: 'Teacher + Students + EchoTutor — The AI participates in the classroom when useful rather than trying to replace the teacher.',
-      contributions: [
-        'Real-time voice interaction',
-        'Classroom context & turn-taking',
-        'Adaptive explanations',
-        'Spoken quizzes',
-        'Teacher controls & hold/resume',
-        'Learning-gap awareness',
-        'Post-class insights'
-      ]
-    }
-  },
-  {
     id: 'agora-medicare-ai',
     title: 'Agora Medicare AI',
     category: 'AI · VOICE · HEALTHCARE',

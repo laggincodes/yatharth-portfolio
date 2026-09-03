@@ -29,11 +29,12 @@ export const CustomCursor: React.FC = () => {
     let initialized = false;
     let isVisible = false;
 
-    // High-performance 1:1 direct GPU transform tracking (0 lag)
+    // High-response interpolation for smooth 0-lag GPU transform updates
     const updatePosition = () => {
       if (initialized) {
-        currentX = targetX;
-        currentY = targetY;
+        const lerpFactor = isReducedMotion ? 1.0 : 0.85;
+        currentX += (targetX - currentX) * lerpFactor;
+        currentY += (targetY - currentY) * lerpFactor;
 
         if (cursorRef.current) {
           cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;

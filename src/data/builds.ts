@@ -12,17 +12,6 @@ export interface BuildEntry {
 
 export const BUILDS: BuildEntry[] = [
   {
-    id: 'build-echotutor',
-    date: 'SEP 2026',
-    title: 'EchoTutor — AI Voice Co-Teacher',
-    category: 'AI · VOICE · EDUCATION',
-    role: 'Creator & Developer',
-    description: 'Built an AI voice co-teacher concept for live digital classrooms using real-time conversational AI.',
-    technologies: ['React', 'TypeScript', 'Next.js', 'Agora', 'Gemini'],
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
-    href: 'https://github.com/laggincodes/EchoTutor.git'
-  },
-  {
     id: 'build-agora-medicare',
     date: 'AUG 2026',
     title: 'Agora Medicare AI — Voice Healthcare Assistant',
