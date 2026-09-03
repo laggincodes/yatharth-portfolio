@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const STATS_DATA = [
-  { value: '02', label: 'CORE FEATURED PROJECTS', detail: 'Agora Medicare AI & Privacy Risk Simulator' },
+  { value: '03', label: 'CORE FEATURED PROJECTS', detail: 'EchoTutor, Agora Medicare AI & Privacy Risk Simulator' },
   { value: '01', label: 'ROLE FOCUS', detail: 'Full-Stack & AI Voice Engineering' },
   { value: '100%', label: 'CODE TRANSPARENCY', detail: 'Public repositories & clear attributions' },
 ];

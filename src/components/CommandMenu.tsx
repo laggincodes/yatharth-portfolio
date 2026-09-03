@@ -65,6 +65,15 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
       },
     },
     {
+      id: 'echotutor',
+      label: 'Open EchoTutor GitHub Repository',
+      icon: GithubIcon,
+      action: () => {
+        window.open('https://github.com/laggincodes/EchoTutor.git', '_blank');
+        onClose();
+      },
+    },
+    {
       id: 'github',
       label: 'Open GitHub Profile',
       icon: GithubIcon,

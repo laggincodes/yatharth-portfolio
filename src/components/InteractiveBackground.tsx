@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 
-export const InteractiveBackground: React.FC = () => {
+export const InteractiveBackground: React.FC = memo(() => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0A0A0A]">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0A0A0A] transform-gpu">
       {/* Background HTML5 Autoplay Seamless Video */}
       <video
         ref={videoRef}
@@ -17,6 +17,7 @@ export const InteractiveBackground: React.FC = () => {
         className={`w-full h-full object-cover transition-opacity duration-1000 ${
           isVideoLoaded ? 'opacity-60 scale-105' : 'opacity-0 scale-100'
         }`}
+        style={{ willChange: 'opacity' }}
       >
         <source src="/hero-background.mp4" type="video/mp4" />
         <source
@@ -26,10 +27,12 @@ export const InteractiveBackground: React.FC = () => {
       </video>
 
       {/* Atmospheric Glass Overlay Gradient for Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/75 via-[#0A0A0A]/45 to-[#0A0A0A]/90 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/75 via-[#0A0A0A]/45 to-[#0A0A0A]/90" />
 
       {/* Radial Spotlight & Grid Texture */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 mix-blend-overlay" />
     </div>
   );
-};
+});
+
+InteractiveBackground.displayName = 'InteractiveBackground';
