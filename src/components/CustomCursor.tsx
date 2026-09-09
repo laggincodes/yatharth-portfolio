@@ -128,7 +128,7 @@ export const CustomCursor: React.FC = () => {
       {/* Inner dot handles scale expansion independently without affecting outer position translate3d */}
       <div
         ref={dotRef}
-        className="w-2.5 h-2.5 rounded-full bg-white shadow-sm transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="w-2.5 h-2.5 rounded-full bg-white border border-black/25 dark:border-white/20 shadow-[0_0_2px_rgba(0,0,0,0.35)] dark:shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
         style={{
           willChange: 'transform',
           transform: 'scale(1)',

@@ -1,27 +1,65 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-bg: hsl(var(--bg));
-  --color-surface: hsl(var(--surface));
-  --color-surface-hover: hsl(var(--surface-hover));
-  --color-text-primary: hsl(var(--text));
-  --color-muted: hsl(var(--muted));
-  --color-stroke: hsl(var(--stroke));
+  --color-bg: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-stroke: var(--border);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-cyan: var(--accent-cyan);
 }
 
 :root {
+  /* Light Mode Palette (Default fallback if not .dark) */
+  --bg: 216 14% 96%;
+  --background: #F3F5F7;
+  --foreground: #111318;
+  --surface: #FFFFFF;
+  --surface-secondary: #ECEFF2;
+  --surface-hover: #E2E6EA;
+  --border: rgba(15, 23, 42, 0.12);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --muted: #E2E6EA;
+  --muted-foreground: #5F6670;
+  --text: 220 17% 8%;
+  --stroke: 216 12% 84%;
+  --accent-blue: #2B7DB8;
+  --accent-cyan: #0284C7;
+  --accent-violet: #6D5DE7;
+  --accent-teal: #0D9488;
+  --accent-amber: #B45309;
+}
+
+.dark {
+  /* Dark Mode Palette (Primary / Default theme) */
   --bg: 0 0% 4%;
-  --surface: 0 0% 8%;
-  --surface-hover: 0 0% 10%;
+  --background: #0A0A0A;
+  --foreground: #F4F4F4;
+  --surface: #141414;
+  --surface-secondary: #0B0F17;
+  --surface-hover: #1A1A1A;
+  --border: #1F1F1F;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --muted: #1F1F1F;
+  --muted-foreground: #878787;
   --text: 0 0% 96%;
-  --muted: 0 0% 53%;
   --stroke: 0 0% 12%;
-  --accent: 0 0% 96%;
+  --accent-blue: #4E85BF;
+  --accent-cyan: #58C7D9;
+  --accent-violet: #8B7CFF;
+  --accent-teal: #4AAE9B;
+  --accent-amber: #D6A85B;
 }
 
 @layer base {
   * {
-    border-color: hsl(var(--stroke));
+    border-color: var(--border);
   }
   html {
     scroll-behavior: smooth;
@@ -30,15 +68,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    background-color: hsl(var(--bg));
-    color: hsl(var(--text));
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    transition: background-color 250ms ease, color 250ms ease;
   }
   
   /* Focus-visible accessibility outline */
   :focus-visible {
-    outline: 2px solid #4E85BF;
+    outline: 2px solid var(--accent-blue);
     outline-offset: 2px;
   }
 }
@@ -87,14 +126,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F1F1F;
+  background: var(--border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: var(--muted-foreground);
 }
 
 /* Accessibility: Reduced Motion */

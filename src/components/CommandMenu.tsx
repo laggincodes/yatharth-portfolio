@@ -107,7 +107,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/70 backdrop-blur-md"
+            className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-md transition-colors duration-200"
           />
 
           {/* Modal Card */}
@@ -116,22 +116,22 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-lg bg-[#141414] border border-[#1F1F1F] rounded-2xl shadow-2xl overflow-hidden z-10 text-[#F4F4F4]"
+            className="relative w-full max-w-lg bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] rounded-2xl shadow-2xl overflow-hidden z-10 text-[#111318] dark:text-[#F4F4F4] transition-colors duration-200"
           >
             {/* Input Bar */}
-            <div className="flex items-center px-4 py-3.5 border-b border-[#1F1F1F]">
-              <Search className="w-4 h-4 text-[#878787] mr-3" />
+            <div className="flex items-center px-4 py-3.5 border-b border-slate-200 dark:border-[#1F1F1F]">
+              <Search className="w-4 h-4 text-[#5F6670] dark:text-[#878787] mr-3" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search..."
-                className="w-full bg-transparent text-sm text-[#F4F4F4] placeholder-[#878787] focus:outline-none"
+                className="w-full bg-transparent text-sm text-[#111318] dark:text-[#F4F4F4] placeholder-[#5F6670] dark:placeholder-[#878787] focus:outline-none"
                 autoFocus
               />
               <button
                 onClick={onClose}
-                className="p-1 text-[#878787] hover:text-[#F4F4F4] rounded-lg transition-colors"
+                className="p-1 text-[#5F6670] dark:text-[#878787] hover:text-[#111318] dark:hover:text-[#F4F4F4] rounded-lg transition-colors"
               >
                 <X size={16} />
               </button>
@@ -146,29 +146,29 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
                     <button
                       key={cmd.id}
                       onClick={cmd.action}
-                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-[#878787] hover:text-[#F4F4F4] hover:bg-[#1F1F1F] transition-colors group"
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-[#5F6670] dark:text-[#878787] hover:text-[#111318] dark:hover:text-[#F4F4F4] hover:bg-slate-100 dark:hover:bg-[#1F1F1F] transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <Icon size={16} className="text-[#878787] group-hover:text-[#4E85BF] transition-colors" />
+                        <Icon size={16} className="text-[#5F6670] dark:text-[#878787] group-hover:text-[#0284C7] dark:group-hover:text-[#4E85BF] transition-colors" />
                         <span>{cmd.label}</span>
                       </div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#878787] group-hover:text-[#F4F4F4]">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#5F6670] dark:text-[#878787] group-hover:text-[#111318] dark:group-hover:text-[#F4F4F4]">
                         Select ↵
                       </span>
                     </button>
                   );
                 })
               ) : (
-                <div className="px-4 py-8 text-center text-xs text-[#878787]">
+                <div className="px-4 py-8 text-center text-xs text-[#5F6670] dark:text-[#878787]">
                   No matching commands found.
                 </div>
               )}
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-[#1F1F1F] bg-[#0A0A0A]/50 text-[10px] text-[#878787]">
+            <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-[#1F1F1F] bg-slate-50 dark:bg-[#0A0A0A]/50 text-[10px] text-[#5F6670] dark:text-[#878787]">
               <span>Use keyboard to navigate</span>
-              <span className="font-mono bg-[#1F1F1F] px-1.5 py-0.5 rounded text-[#F4F4F4]">ESC to close</span>
+              <span className="font-mono bg-slate-200 dark:bg-[#1F1F1F] px-1.5 py-0.5 rounded text-[#111318] dark:text-[#F4F4F4]">ESC to close</span>
             </div>
           </motion.div>
         </div>

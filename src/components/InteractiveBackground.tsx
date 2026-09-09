@@ -5,7 +5,7 @@ export const InteractiveBackground: React.FC = memo(() => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0A0A0A] transform-gpu">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#F3F5F7] dark:bg-[#0A0A0A] transform-gpu transition-colors duration-300">
       {/* Background HTML5 Autoplay Seamless Video */}
       <video
         ref={videoRef}
@@ -15,7 +15,9 @@ export const InteractiveBackground: React.FC = memo(() => {
         playsInline
         onCanPlay={() => setIsVideoLoaded(true)}
         className={`w-full h-full object-cover transition-opacity duration-1000 ${
-          isVideoLoaded ? 'opacity-60 scale-105' : 'opacity-0 scale-100'
+          isVideoLoaded
+            ? 'opacity-35 dark:opacity-60 scale-105'
+            : 'opacity-0 scale-100'
         }`}
         style={{ willChange: 'opacity' }}
       >
@@ -26,11 +28,11 @@ export const InteractiveBackground: React.FC = memo(() => {
         />
       </video>
 
-      {/* Atmospheric Glass Overlay Gradient for Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/75 via-[#0A0A0A]/45 to-[#0A0A0A]/90" />
+      {/* Atmospheric Glass Overlay Gradient for Legibility in Both Modes */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F3F5F7]/85 via-[#F3F5F7]/60 to-[#F3F5F7]/95 dark:from-[#0A0A0A]/75 dark:via-[#0A0A0A]/45 dark:to-[#0A0A0A]/90 transition-colors duration-300" />
 
       {/* Radial Spotlight & Grid Texture */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 dark:opacity-20 mix-blend-multiply dark:mix-blend-overlay" />
     </div>
   );
 });

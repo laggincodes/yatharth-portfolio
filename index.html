@@ -8,6 +8,29 @@
     <meta name="description" content="Yatharth Saini's portfolio showcasing AI, voice, frontend and full-stack projects." />
     <meta name="theme-color" content="#0A0A0A" />
 
+    <!-- Early Theme Detection Script to prevent flash of unstyled theme -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          var root = document.documentElement;
+          if (saved === 'light') {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          } else if (saved === 'dark') {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          } else {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Open Graph / Social Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Yatharth Saini — AI Builder & CSE Student" />
