@@ -36,7 +36,7 @@ const STACK_CATEGORIES = [
 
 export const Stack: React.FC = () => {
   return (
-    <section className="w-full bg-[#F3F5F7] dark:bg-[#0A0E14] py-16 md:py-24 px-6 md:px-10 lg:px-16 border-t border-slate-200/80 dark:border-[#1F1F1F]/80 transition-colors duration-200">
+    <section className="w-full bg-[#F3F5F7] dark:bg-[#0A0E14] py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-t border-slate-200/80 dark:border-[#1F1F1F]/80 transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-12">
         {/* Title */}
         <div className="space-y-2">
@@ -49,7 +49,7 @@ export const Stack: React.FC = () => {
         </div>
 
         {/* Stack Grid with Category Specific Color Accents */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
           {STACK_CATEGORIES.map((cat, idx) => (
             <motion.div
               key={cat.category}
@@ -59,7 +59,7 @@ export const Stack: React.FC = () => {
               transition={{ duration: 0.6, delay: idx * 0.08 }}
               className={`bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] ${cat.accentColor} rounded-2xl p-5 space-y-4 transition-all duration-200 shadow-sm`}
             >
-              <h3 className={`text-[11px] font-mono uppercase tracking-[0.2em] ${cat.accentColor.split(' ')[0]} border-b border-slate-200 dark:border-[#1F1F1F] pb-2.5 flex items-center justify-between`}>
+              <h3 className={`text-xs font-mono uppercase tracking-[0.2em] ${cat.accentColor.split(' ')[0]} border-b border-slate-200 dark:border-[#1F1F1F] pb-2.5 flex items-center justify-between`}>
                 <span>{cat.category}</span>
                 <span className={`w-1.5 h-1.5 rounded-full ${cat.badgeBg.split(' ')[0]}`} />
               </h3>
@@ -68,7 +68,7 @@ export const Stack: React.FC = () => {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] text-[#111318] dark:text-[#F4F4F4] hover:text-[#0284C7] dark:hover:text-[#58C7D9] hover:border-[#0284C7]/40 dark:hover:border-[#58C7D9]/40 transition-colors"
+                    className="text-xs sm:text-sm font-mono px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] text-[#111318] dark:text-[#F4F4F4] hover:text-[#0284C7] dark:hover:text-[#58C7D9] hover:border-[#0284C7]/40 dark:hover:border-[#58C7D9]/40 transition-colors"
                   >
                     {skill}
                   </span>

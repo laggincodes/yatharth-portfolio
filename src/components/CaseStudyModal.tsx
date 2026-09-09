@@ -75,7 +75,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
           </div>
 
           {/* Scrollable Editorial Body */}
-          <div className="p-6 sm:p-8 md:p-12 overflow-y-auto space-y-10">
+          <div className="p-5 sm:p-8 md:p-12 overflow-y-auto space-y-8 sm:space-y-10">
             {/* Clean Editorial Header */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-[#5F6670] dark:text-[#878787]">
@@ -84,15 +84,15 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                 <span>SELECTED WORK</span>
               </div>
 
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-[#111318] dark:text-[#F4F4F4] tracking-tight transition-colors duration-200">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-[#111318] dark:text-[#F4F4F4] tracking-tight leading-tight transition-colors duration-200">
                 {project.title}
               </h2>
 
-              <p className="text-lg md:text-xl text-[#5F6670] dark:text-[#878787] font-light leading-relaxed max-w-3xl transition-colors duration-200">
+              <p className="text-base sm:text-lg md:text-xl text-[#5F6670] dark:text-[#878787] font-light leading-relaxed max-w-3xl transition-colors duration-200">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono text-[#5F6670] dark:text-[#878787]">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-mono text-[#5F6670] dark:text-[#878787]">
                 <span className="text-[#0284C7] dark:text-[#58C7D9] font-medium uppercase tracking-wider">
                   {project.category}
                 </span>
@@ -108,7 +108,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             </div>
 
             {/* Hero Image Centerpiece */}
-            <div className="w-full h-64 sm:h-80 md:h-[420px] lg:h-[460px] rounded-2xl md:rounded-3xl overflow-hidden border border-slate-200 dark:border-[#1F1F1F] bg-slate-100 dark:bg-[#0A0A0A] relative group shadow-sm transition-colors duration-200">
+            <div className="w-full aspect-[16/10] sm:h-80 md:h-[420px] lg:h-[460px] rounded-2xl md:rounded-3xl overflow-hidden border border-slate-200 dark:border-[#1F1F1F] bg-slate-100 dark:bg-[#0A0A0A] relative group shadow-sm transition-colors duration-200">
               <img
                 src={project.image}
                 alt={project.title}

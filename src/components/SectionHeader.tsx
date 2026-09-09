@@ -31,7 +31,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         </div>
 
         {/* Headline */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#111318] dark:text-[#F4F4F4] tracking-tight leading-none transition-colors duration-200">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#111318] dark:text-[#F4F4F4] tracking-tight leading-tight sm:leading-none transition-colors duration-200">
           {titleNormal}{' '}
           <span className="font-display italic text-[#111318] dark:text-[#F4F4F4] font-normal">
             {titleItalic}
@@ -40,7 +40,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
         {/* Description */}
         {description && (
-          <p className="text-sm md:text-base text-[#5F6670] dark:text-[#878787] font-normal leading-relaxed transition-colors duration-200">
+          <p className="text-base sm:text-lg text-[#5F6670] dark:text-[#878787] font-normal leading-relaxed transition-colors duration-200">
             {description}
           </p>
         )}

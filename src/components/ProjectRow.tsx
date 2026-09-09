@@ -84,18 +84,18 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
           {/* Title & Metadata Stack */}
           <div className="space-y-1.5 min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-3">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors truncate">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors truncate">
                 {project.title}
               </h3>
               <span
-                className={`text-[10px] font-mono uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-full border backdrop-blur-md shrink-0 hidden sm:inline-block ${accent.badgeBg}`}
+                className={`text-xs font-mono uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-full border backdrop-blur-md shrink-0 hidden sm:inline-block ${accent.badgeBg}`}
               >
                 {project.category}
               </span>
             </div>
 
             {/* Sub-info summary (Role & Short description) */}
-            <div className="flex items-center gap-3 text-xs font-normal text-[#5F6670] dark:text-[#878787] truncate">
+            <div className="flex items-center gap-3 text-sm font-normal text-[#5F6670] dark:text-[#878787] truncate">
               {project.role && (
                 <span className="font-mono text-[#4A7C59] dark:text-[#89AACC] shrink-0">
                   Role: <strong className="text-[#111318] dark:text-[#F4F4F4] font-normal">{project.role}</strong>
@@ -135,7 +135,7 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
           >
             <div className="px-2 sm:px-4 md:px-6 pb-8 md:pb-10 pt-2 space-y-8">
               {/* Large Project Image Visual */}
-              <div className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[440px] rounded-2xl overflow-hidden border border-slate-200 dark:border-[#1F1F1F] bg-slate-100 dark:bg-[#0A0A0A] relative group/img shadow-sm">
+              <div className="w-full aspect-[16/10] sm:h-80 md:h-[400px] lg:h-[440px] rounded-2xl overflow-hidden border border-slate-200 dark:border-[#1F1F1F] bg-slate-100 dark:bg-[#0A0A0A] relative group/img shadow-sm">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -147,21 +147,21 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 dark:from-[#0A0A0A]/90 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                  <span className={`text-[10px] font-mono uppercase tracking-[0.2em] px-3 py-1 rounded-full border backdrop-blur-md ${accent.badgeBg}`}>
+                  <span className={`text-xs font-mono uppercase tracking-[0.2em] px-3 py-1 rounded-full border backdrop-blur-md ${accent.badgeBg}`}>
                     {project.category}
                   </span>
                 </div>
               </div>
 
               {/* Editorial 2-Column Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
                 {/* Left Column: Description & Detailed Engineering Contributions */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="space-y-3">
-                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#5F6670] dark:text-[#878787]">
+                    <h4 className="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-[#5F6670] dark:text-[#878787]">
                       OVERVIEW & PURPOSE
                     </h4>
-                    <p className="text-sm md:text-base text-[#111318] dark:text-[#F4F4F4] font-normal leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#111318] dark:text-[#F4F4F4] font-normal leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -169,14 +169,14 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
                   {/* Contributions List */}
                   {project.caseStudy?.contributions && project.caseStudy.contributions.length > 0 && (
                     <div className="space-y-3 pt-2 border-t border-slate-200/80 dark:border-[#1F1F1F]/80">
-                      <h4 className={`text-xs font-mono uppercase tracking-[0.2em] ${accent.numColor}`}>
+                      <h4 className={`text-xs sm:text-sm font-mono uppercase tracking-[0.2em] ${accent.numColor}`}>
                         ENGINEERING IMPLEMENTATION & CONTRIBUTIONS
                       </h4>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {project.caseStudy.contributions.map((contribution, cIdx) => (
                           <li
                             key={cIdx}
-                            className="flex items-start gap-2 text-xs md:text-sm text-[#5F6670] dark:text-[#878787] leading-relaxed"
+                            className="flex items-start gap-2 text-sm sm:text-base text-[#5F6670] dark:text-[#878787] leading-relaxed"
                           >
                             <span className={`${accent.numColor} shrink-0`}>•</span>
                             <span>{contribution}</span>
@@ -191,23 +191,23 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
                 <div className="lg:col-span-5 bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] rounded-2xl p-6 space-y-6 flex flex-col justify-between shadow-sm">
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#5F6670] dark:text-[#878787]">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#5F6670] dark:text-[#878787]">
                         PROJECT ROLE
                       </span>
-                      <p className="text-sm font-mono text-[#111318] dark:text-[#F4F4F4]">
+                      <p className="text-sm sm:text-base font-mono text-[#111318] dark:text-[#F4F4F4]">
                         {project.role || 'Developer'}
                       </p>
                     </div>
 
                     <div className="space-y-2 border-t border-slate-200 dark:border-[#1F1F1F] pt-4">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#5F6670] dark:text-[#878787]">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#5F6670] dark:text-[#878787]">
                         TECHNOLOGIES APPLIED
                       </span>
                       <div className="flex flex-wrap gap-2 pt-1">
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] text-[#111318] dark:text-[#F4F4F4]"
+                            className="text-xs sm:text-sm font-mono px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] text-[#111318] dark:text-[#F4F4F4]"
                           >
                             {tech}
                           </span>
@@ -217,13 +217,13 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
                   </div>
 
                   {/* CTAs: GitHub & Case Study Modal */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200 dark:border-[#1F1F1F]">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-slate-200 dark:border-[#1F1F1F]">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-[#141414] dark:hover:bg-[#1F1F1F] border border-slate-200 dark:border-[#1F1F1F] text-xs font-medium text-[#111318] dark:text-[#F4F4F4] transition-all duration-200 hover:scale-[1.02]"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-[#141414] dark:hover:bg-[#1F1F1F] border border-slate-200 dark:border-[#1F1F1F] text-sm font-medium text-[#111318] dark:text-[#F4F4F4] transition-all duration-200 hover:scale-[1.02]"
                       >
                         <GithubIcon size={16} className={accent.numColor} />
                         <span>GitHub ↗</span>
@@ -232,7 +232,7 @@ export const ProjectRow: React.FC<ProjectRowProps> = ({
 
                     <button
                       onClick={() => onSelectCaseStudy(project)}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#111318] hover:bg-black dark:bg-[#F4F4F4] dark:hover:bg-white text-white dark:text-[#0A0A0A] text-xs font-medium transition-all duration-200 hover:scale-[1.02] shadow-sm ml-auto"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#111318] hover:bg-black dark:bg-[#F4F4F4] dark:hover:bg-white text-white dark:text-[#0A0A0A] text-sm font-medium transition-all duration-200 hover:scale-[1.02] shadow-sm sm:ml-auto"
                     >
                       <span>View Case Study</span>
                       <ArrowUpRight size={14} />

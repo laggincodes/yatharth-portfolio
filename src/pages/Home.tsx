@@ -1,6 +1,5 @@
 import React from 'react';
 import { InteractiveBackground } from '../components/InteractiveBackground';
-import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { ProjectGrid } from '../components/ProjectGrid';
 import { BuildLog } from '../components/BuildLog';
@@ -23,8 +22,7 @@ export const Home: React.FC<HomeProps> = ({ isLoaded, onOpenCommandMenu }) => {
 
       {/* Main Content Layer */}
       <main className="relative z-10">
-        <Navbar onOpenCommandMenu={onOpenCommandMenu} />
-        <Hero isLoaded={isLoaded} />
+        <Hero isLoaded={isLoaded} onOpenCommandMenu={onOpenCommandMenu} />
         <ProjectGrid />
         <BuildLog />
         <Stats />

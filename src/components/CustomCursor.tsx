@@ -8,15 +8,22 @@ export const CustomCursor: React.FC = () => {
   useEffect(() => {
     // Desktop fine-pointer check
     const mediaQuery = window.matchMedia('(pointer: fine)');
-    setIsPointerFine(mediaQuery.matches);
+    const isDesktopPointer = mediaQuery.matches && window.innerWidth >= 768;
+    setIsPointerFine(isDesktopPointer);
 
-    const handleMediaChange = (e: MediaQueryListEvent) => {
-      setIsPointerFine(e.matches);
+    const handleMediaChange = () => {
+      setIsPointerFine(window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768);
     };
 
     mediaQuery.addEventListener('change', handleMediaChange);
+    window.addEventListener('resize', handleMediaChange);
 
-    if (!mediaQuery.matches) return;
+    if (!isDesktopPointer) {
+      return () => {
+        mediaQuery.removeEventListener('change', handleMediaChange);
+        window.removeEventListener('resize', handleMediaChange);
+      };
+    }
 
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const isReducedMotion = motionQuery.matches;
@@ -105,6 +112,7 @@ export const CustomCursor: React.FC = () => {
 
     return () => {
       mediaQuery.removeEventListener('change', handleMediaChange);
+      window.removeEventListener('resize', handleMediaChange);
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerleave', handlePointerLeave);
       window.removeEventListener('pointerenter', handlePointerEnter);

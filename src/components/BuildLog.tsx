@@ -29,7 +29,7 @@ const getBuildAccent = (idx: number) => {
 
 export const BuildLog: React.FC = () => {
   return (
-    <section className="w-full bg-[#F3F5F7] dark:bg-[#0A0A0A] py-20 md:py-28 px-6 md:px-10 lg:px-16 border-t border-slate-200/80 dark:border-[#1F1F1F]/60 transition-colors duration-200">
+    <section className="w-full bg-[#F3F5F7] dark:bg-[#0A0A0A] py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 border-t border-slate-200/80 dark:border-[#1F1F1F]/60 transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-12">
         {/* Section Header */}
         <SectionHeader
@@ -54,28 +54,28 @@ export const BuildLog: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`group block bg-white hover:bg-slate-50 dark:bg-[#141414] dark:hover:bg-[#1A1A1A] border border-slate-200 dark:border-[#1F1F1F] ${accent.hoverBorder} rounded-2xl p-6 md:p-8 transition-all duration-200 shadow-sm`}
+                className={`group block bg-white hover:bg-slate-50 dark:bg-[#141414] dark:hover:bg-[#1A1A1A] border border-slate-200 dark:border-[#1F1F1F] ${accent.hoverBorder} rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-200 shadow-sm`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="space-y-2 max-w-3xl">
-                    <div className="flex items-center gap-3">
-                      <span className="text-[11px] font-mono text-[#5F6670] dark:text-[#878787] bg-slate-100 dark:bg-[#0A0A0A] px-2.5 py-1 rounded-md border border-slate-200 dark:border-[#1F1F1F]">
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                      <span className="text-xs font-mono text-[#5F6670] dark:text-[#878787] bg-slate-100 dark:bg-[#0A0A0A] px-2.5 py-1 rounded-md border border-slate-200 dark:border-[#1F1F1F]">
                         {build.date}
                       </span>
-                      <span className={`text-xs font-mono font-medium ${accent.category}`}>
+                      <span className={`text-xs sm:text-sm font-mono font-medium ${accent.category}`}>
                         {build.category}
                       </span>
-                      <span className="text-xs font-mono text-[#5F6670] dark:text-[#878787]">
+                      <span className="text-xs sm:text-sm font-mono text-[#5F6670] dark:text-[#878787]">
                         • {build.role}
                       </span>
                     </div>
 
-                    <h3 className="text-xl md:text-2xl font-medium text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors flex items-center gap-2">
+                    <h3 className="text-xl sm:text-2xl font-medium text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors flex items-center gap-2">
                       <span>{build.title}</span>
                       <ArrowUpRight size={18} className={`opacity-0 group-hover:opacity-100 transition-opacity ${accent.arrow}`} />
                     </h3>
 
-                    <p className="text-xs md:text-sm text-[#5F6670] dark:text-[#878787] leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#5F6670] dark:text-[#878787] leading-relaxed">
                       {build.description}
                     </p>
                   </div>
@@ -84,7 +84,7 @@ export const BuildLog: React.FC = () => {
                     {build.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-slate-100 dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] text-[#5F6670] dark:text-[#878787]"
+                        className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] text-[#5F6670] dark:text-[#878787]"
                       >
                         {tech}
                       </span>
