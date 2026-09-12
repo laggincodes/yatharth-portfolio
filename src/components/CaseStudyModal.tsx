@@ -125,7 +125,15 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             <div className="w-full aspect-[16/10] sm:h-80 md:h-[420px] lg:h-[460px] rounded-2xl md:rounded-3xl overflow-hidden border border-[#D9D7CF] dark:border-[#252C36] bg-[#ECEAE3] dark:bg-[#0B0D10] relative group shadow-sm transition-colors duration-200">
               <img
                 src={project.image}
-                alt={project.title}
+                alt={
+                  project.id === 'echotutor'
+                    ? 'EchoTutor AI voice co-teacher project interface'
+                    : project.id === 'agora-medicare-ai'
+                    ? 'Agora Medicare AI real-time clinical triage platform interface'
+                    : project.id === 'ai-privacy-risk-simulator'
+                    ? 'AI Privacy Risk Simulator vulnerability dashboard and risk matrix'
+                    : `${project.title} project interface`
+                }
                 className="w-full h-full object-cover object-center brightness-[0.98] dark:brightness-[0.95] group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

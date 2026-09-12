@@ -1,0 +1,5 @@
+# Robots.txt for Yatharth Saini Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://yatharth-portfolio.vercel.app/sitemap.xml

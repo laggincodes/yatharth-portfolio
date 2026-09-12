@@ -129,7 +129,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         >
           <img
             src={project.image}
-            alt={project.title}
+            alt={
+              project.id === 'echotutor'
+                ? 'EchoTutor AI voice co-teacher project interface'
+                : project.id === 'agora-medicare-ai'
+                ? 'Agora Medicare AI real-time clinical triage platform interface'
+                : project.id === 'ai-privacy-risk-simulator'
+                ? 'AI Privacy Risk Simulator vulnerability dashboard and risk matrix'
+                : `${project.title} project interface`
+            }
             loading="lazy"
             className="w-full h-full object-cover object-center brightness-[0.98] dark:brightness-[0.95] group-hover:scale-[1.02] transition-transform duration-300 ease-out"
             onError={(e) => {

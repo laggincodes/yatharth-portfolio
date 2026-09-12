@@ -6,6 +6,15 @@ The portfolio uses a dark editorial visual system with interactive project prese
 
 ## Featured Projects
 
+### EchoTutor
+**AI · Voice · Education**
+
+An AI voice co-teacher for live digital classrooms, built around real-time conversational interaction.
+
+**Repository:** [https://github.com/laggincodes/EchoTutor.git](https://github.com/laggincodes/EchoTutor.git)
+
+**Tech:** React, TypeScript, Next.js, Agora, Conversational AI, Gemini, Voice AI
+
 ### Agora Medicare AI
 **AI · Voice · Healthcare**
 
