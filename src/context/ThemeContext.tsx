@@ -13,12 +13,13 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('portfolio-theme') as Theme | null;
-      if (saved === 'light' || saved === 'dark') {
-        return saved;
-      }
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
+      try {
+        const saved = localStorage.getItem('portfolio-theme') as Theme | null;
+        if (saved === 'light' || saved === 'dark') {
+          return saved;
+        }
+      } catch {
+        // localStorage may fail in restricted/private modes
       }
     }
     return 'dark'; // Dark mode is default
@@ -31,11 +32,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
-      if (metaThemeColor) metaThemeColor.setAttribute('content', '#0A0A0A');
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#0B0D10');
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
-      if (metaThemeColor) metaThemeColor.setAttribute('content', '#F3F5F7');
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#F3F1EA');
     }
 
     try {

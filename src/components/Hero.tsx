@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { Navbar } from './Navbar';
 
@@ -8,110 +9,122 @@ interface HeroProps {
   onOpenCommandMenu: () => void;
 }
 
-const ROLES = [
-  'An AI builder',
-  'A developer',
-  'A product tinkerer',
-  'A CSE student lives in Delhi',
-];
-
 export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  // Cycle role text
-  useEffect(() => {
-    if (!isLoaded) return;
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % ROLES.length);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, [isLoaded]);
-
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-between pt-4 sm:pt-6 md:pt-8 pb-8 px-4 sm:px-6 md:px-10 lg:px-16 bg-transparent overflow-hidden text-center">
-      {/* Floating Navbar Associated with Entry / Hero Section */}
+    <section
+      id="hero"
+      className="relative min-h-screen w-full flex flex-col justify-between pt-4 sm:pt-6 md:pt-8 pb-8 px-4 sm:px-6 md:px-10 lg:px-16 bg-transparent overflow-hidden"
+    >
+      {/* Floating Entry Navbar in Document Flow (scrolls away naturally) */}
       <Navbar onOpenCommandMenu={onOpenCommandMenu} />
 
-      {/* Cinematic Atmospheric Radial Lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[950px] h-[450px] bg-gradient-to-r from-[#2B7DB8]/10 via-[#0284C7]/8 to-[#6D5DE7]/10 dark:from-[#4E85BF]/15 dark:via-[#58C7D9]/10 dark:to-[#8B7CFF]/15 rounded-full blur-[150px] pointer-events-none transition-colors duration-500" />
-
-      {/* Main Centered Hero Content Block */}
-      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center space-y-6 sm:space-y-8 my-auto relative z-10 py-4 sm:py-8">
-        {/* Hero Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-[#141414]/90 border border-slate-200 dark:border-[#1F1F1F] text-xs font-mono text-[#5F6670] dark:text-[#878787] shadow-sm dark:shadow-lg backdrop-blur-md transition-colors duration-200">
-          <Sparkles size={13} className="text-[#0284C7] dark:text-[#58C7D9] animate-pulse" />
-          <span className="text-[#111318] dark:text-[#F4F4F4]">YATHARTH SAINI</span>
-          <span className="text-[#6D5DE7] dark:text-[#8B7CFF]">•</span>
-          <span className="text-[#0284C7] dark:text-[#58C7D9]">CSE STUDENT & AI BUILDER</span>
-        </div>
-
-        {/* Display Headline */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[9.5rem] font-light tracking-tight text-[#111318] dark:text-[#F4F4F4] leading-[0.95] sm:leading-[0.9] select-none text-center transition-colors duration-200">
-          Yatharth{' '}
-          <span className="font-display italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#111318] via-[#0284C7] to-[#6D5DE7] dark:from-[#F4F4F4] dark:via-[#58C7D9] dark:to-[#8B7CFF]">
-            Saini.
-          </span>
-        </h1>
-
-        {/* Center Narrative Statement */}
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#111318] dark:text-[#F4F4F4] font-light leading-relaxed sm:leading-snug max-w-2xl mx-auto text-center transition-colors duration-200">
-          "I build <span className="text-[#0284C7] dark:text-[#58C7D9] font-normal">AI-powered products</span>, <span className="text-[#6D5DE7] dark:text-[#8B7CFF] font-normal">voice interfaces</span> and modern web systems."
-        </p>
-
-        {/* Dynamic Role Text Cycler */}
-        <div className="flex items-center justify-center gap-3 text-sm md:text-base font-mono text-[#5F6670] dark:text-[#878787]">
-          <span className="w-2 h-2 rounded-full bg-[#0284C7] dark:bg-[#58C7D9] animate-pulse" />
-          <span className="transition-all duration-500 ease-in-out text-[#111318] dark:text-[#F4F4F4] font-medium">
-            {ROLES[roleIndex]}
-          </span>
-        </div>
-
-        {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-          <a
-            href="#work"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#111318] dark:bg-[#F4F4F4] text-white dark:text-[#0A0A0A] font-medium text-sm sm:text-base transition-all duration-300 hover:bg-black dark:hover:bg-white hover:scale-[1.02] shadow-lg hover:shadow-cyan-500/20"
-          >
-            <span>Explore Selected Work</span>
-            <ArrowDown size={16} />
-          </a>
-
-          <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
-            <a
-              href="https://github.com/laggincodes"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/90 dark:bg-[#141414]/90 hover:bg-slate-50 dark:hover:bg-[#1A1A1A] text-[#111318] dark:text-[#F4F4F4] border border-slate-200 dark:border-[#1F1F1F] hover:border-[#0284C7]/50 dark:hover:border-[#58C7D9]/50 text-sm font-medium transition-all duration-300 backdrop-blur-md shadow-sm"
-            >
-              <GithubIcon size={16} className="text-[#0284C7] dark:text-[#58C7D9]" />
-              <span>GitHub</span>
-              <ArrowUpRight size={14} className="text-[#5F6670] dark:text-[#878787]" />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/yatharth-saini-6bb584389"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/90 dark:bg-[#141414]/90 hover:bg-slate-50 dark:hover:bg-[#1A1A1A] text-[#111318] dark:text-[#F4F4F4] border border-slate-200 dark:border-[#1F1F1F] hover:border-[#6D5DE7]/50 dark:hover:border-[#8B7CFF]/50 text-sm font-medium transition-all duration-300 backdrop-blur-md shadow-sm"
-            >
-              <LinkedinIcon size={16} className="text-[#6D5DE7] dark:text-[#8B7CFF]" />
-              <span>LinkedIn</span>
-              <ArrowUpRight size={14} className="text-[#5F6670] dark:text-[#878787]" />
-            </a>
+      {/* Main Editorial Cover Spread */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 24 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        className="max-w-[1200px] w-full mx-auto my-auto relative z-10 py-8 sm:py-12"
+      >
+        {/* Top Cover Index & Metadata Line */}
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 border-b border-[#D8D2C5] dark:border-[#262E38] pb-4 mb-8 sm:mb-12 text-xs font-mono tracking-[0.25em] text-[#59616A] dark:text-[#9AA0AA]">
+          <div className="flex items-center gap-3">
+            <span className="font-semibold text-[#1D9AA2] dark:text-[#35C7D0]">01</span>
+            <span className="text-[#D8D2C5] dark:border-[#262E38]">/</span>
+            <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-wider">YATHARTH SAINI</span>
+          </div>
+          <div className="flex items-center gap-3 text-[11px] font-medium">
+            <span>CSE STUDENT · AI BUILDER</span>
+            <span className="hidden md:inline text-[#D8D2C5] dark:text-[#262E38]">/</span>
+            <span className="hidden md:inline">DELHI, IN</span>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator at Bottom Center */}
-      <div className="pt-4 pb-2 flex justify-center relative z-10">
+        {/* Large Asymmetric Magazine Headline */}
+        <div className="space-y-1 sm:space-y-2 select-none">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.25rem] font-semibold tracking-[-0.04em] text-[#171A1D] dark:text-[#F1EFE8] leading-[0.92] text-left">
+            Yatharth
+          </h1>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.25rem] font-medium tracking-[-0.03em] leading-[0.92] text-left pl-4 sm:pl-12 md:pl-24 lg:pl-36">
+            <span className="font-display italic text-[#171A1D] dark:text-[#F1EFE8]">
+              Saini.
+            </span>
+          </h1>
+        </div>
+
+        {/* Editorial Narrative & Technical Ledger Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 sm:pt-14 items-end">
+          {/* Left / Narrative (7 cols) */}
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+            <p className="text-[17px] sm:text-lg md:text-xl text-[#171A1D] dark:text-[#F1EFE8] font-medium leading-relaxed max-w-xl text-left">
+              "I build AI-powered products, voice interfaces and modern web systems."
+            </p>
+
+            {/* Tactile Editorial CTAs with minimum 44px touch targets */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
+              <a
+                href="#work"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 min-h-[44px] rounded-full bg-[#171A1D] dark:bg-[#F1EFE8] text-[#F1EEE7] dark:text-[#0D1014] font-semibold text-sm transition-all duration-300 hover:bg-black dark:hover:bg-white shadow-xs cursor-pointer"
+              >
+                <span>Explore Selected Work</span>
+                <ArrowDown size={15} className="text-[#35C7D0] dark:text-[#1D9AA2] transition-transform duration-300 group-hover:translate-y-0.5" />
+              </a>
+
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <a
+                  href="https://github.com/laggincodes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#1D9AA2]/50 dark:hover:border-[#35C7D0]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
+                >
+                  <GithubIcon size={15} className="text-[#1D9AA2] dark:text-[#35C7D0]" />
+                  <span>GitHub</span>
+                  <ArrowUpRight size={13} className="text-[#59616A] dark:text-[#9AA0AA] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors" />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/yatharth-saini-6bb584389"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#6C5CE7]/50 dark:hover:border-[#9A8CFF]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
+                >
+                  <LinkedinIcon size={15} className="text-[#6C5CE7] dark:text-[#9A8CFF]" />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={13} className="text-[#59616A] dark:text-[#9AA0AA] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-colors" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right / Metadata Ledger (5 cols) */}
+          <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-[#D8D2C5] dark:border-[#262E38] pt-6 lg:pt-0 lg:pl-8 space-y-3.5 text-xs font-mono text-[#59616A] dark:text-[#9AA0AA]">
+            <div className="flex justify-between items-baseline py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
+              <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">FOCUS</span>
+              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">AI / VOICE / WEB</span>
+            </div>
+            <div className="flex justify-between items-baseline py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
+              <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">PRACTICE</span>
+              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">PRODUCT TINKERER</span>
+            </div>
+            <div className="flex justify-between items-baseline py-1.5">
+              <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">LOCATION</span>
+              <span className="inline-flex items-center gap-1.5 text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2E885E] dark:bg-[#72C7A0] animate-pulse" />
+                DELHI, INDIA
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Bottom Editorial Scroll Anchor */}
+      <div className="max-w-[1200px] w-full mx-auto pt-4 flex justify-between items-center text-xs font-mono tracking-widest text-[#59616A] dark:text-[#9AA0AA] relative z-10 border-t border-[#D8D2C5] dark:border-[#262E38]">
+        <span>ISSUE 2026</span>
         <a
           href="#work"
-          className="flex items-center gap-3 text-xs font-mono text-[#5F6670] dark:text-[#878787] hover:text-[#0284C7] dark:hover:text-[#58C7D9] transition-colors group"
+          className="min-h-[44px] flex items-center gap-2 hover:text-[#171A1D] dark:hover:text-[#F1EFE8] transition-colors group font-medium cursor-pointer"
         >
           <span>SCROLL TO EXPLORE</span>
-          <div className="w-8 h-8 rounded-full border border-slate-200 dark:border-[#1F1F1F] bg-white/80 dark:bg-transparent flex items-center justify-center group-hover:border-[#0284C7] dark:group-hover:border-[#58C7D9] transition-colors shadow-xs">
-            <ArrowDown size={14} className="transition-transform group-hover:translate-y-0.5" />
-          </div>
+          <ArrowDown size={13} className="text-[#1D9AA2] dark:text-[#35C7D0] transition-transform duration-300 group-hover:translate-y-0.5" />
         </a>
       </div>
     </section>

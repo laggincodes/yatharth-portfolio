@@ -23,114 +23,111 @@ export const Contact: React.FC = () => {
   }, []);
 
   return (
-    <section id="contact" className="relative w-full bg-[#F8FAFC] dark:bg-[#0A0A0E] pt-20 sm:pt-24 md:pt-32 pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-t border-slate-200/80 dark:border-[#1F1F1F]/80 transition-colors duration-200">
-      {/* Background Dual Ambient Glow */}
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-gradient-to-r from-[#2B7DB8]/10 via-[#0284C7]/8 to-[#6D5DE7]/10 dark:from-[#4E85BF]/15 dark:via-[#58C7D9]/10 dark:to-[#8B7CFF]/15 rounded-full blur-[170px] pointer-events-none transition-colors duration-500" />
-
+    <section id="contact" className="relative w-full bg-[#E5E8EC] dark:bg-[#11161D] pt-20 sm:pt-24 md:pt-32 pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-t border-[#D8D2C5] dark:border-[#262E38] transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-12 sm:space-y-16 relative z-10">
         {/* Eyebrow Label */}
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-[#5F6670] dark:text-[#878787]">
-          <span className="text-[#0284C7] dark:text-[#58C7D9] font-semibold">04</span>
-          <span>/</span>
+        <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.25em] text-[#555C66] dark:text-[#9EA3AC]">
+          <span className="text-[#1D9AA2] dark:text-[#35C7D0] font-semibold">05</span>
+          <span className="text-[#D8D2C5] dark:text-[#262E38]">/</span>
           <span>CONTACT</span>
         </div>
 
         {/* Asymmetric Split Editorial Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-start">
-          {/* Left Column: Large Editorial Heading, Narrative & Primary CTA */}
+          {/* Left Column: Large Editorial Heading, Narrative & Primary CTA (6 cols) */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-light text-[#111318] dark:text-[#F4F4F4] leading-tight sm:leading-[0.95] tracking-tight transition-colors duration-200">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold text-[#171A1D] dark:text-[#EDEDED] leading-[0.95] tracking-tight">
               Let's build{' '}
-              <span className="font-display italic block md:inline font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#111318] via-[#0284C7] to-[#6D5DE7] dark:from-[#F4F4F4] dark:via-[#58C7D9] dark:to-[#8B7CFF]">
+              <span className="font-display italic block sm:inline font-normal text-[#171A1D] dark:text-[#EDEDED]">
                 something.
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#5F6670] dark:text-[#878787] font-normal leading-relaxed max-w-md transition-colors duration-200">
+            <p className="text-base sm:text-lg text-[#555C66] dark:text-[#9EA3AC] font-normal leading-relaxed max-w-md">
               Have an idea, opportunity, internship, collaboration, or interesting problem?
             </p>
 
-            {/* Primary Action CTA */}
+            {/* Primary Action CTA with min 44px touch target */}
             <div className="pt-2">
               <a
                 href="mailto:yathusaini10@gmail.com"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#111318] dark:bg-[#F4F4F4] text-white dark:text-[#0A0A0A] font-medium text-base transition-all duration-300 hover:bg-black dark:hover:bg-white hover:scale-[1.02] shadow-xl"
+                className="min-h-[44px] group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#171A1D] dark:bg-[#EDEDED] text-[#F1EEE7] dark:text-[#0D1014] font-medium text-xs sm:text-sm transition-all duration-300 hover:bg-[#252C36] dark:hover:bg-white shadow-xs cursor-pointer"
               >
                 <span>Say hello</span>
-                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-[#0284C7] dark:text-[#58C7D9]" />
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C57D28] dark:text-[#E7A85B]" />
               </a>
             </div>
           </div>
 
-          {/* Right Column: Clean Vertical Action Rows with Vector Icons */}
-          <div className="lg:col-span-6 w-full space-y-0 divide-y divide-slate-200/80 dark:divide-[#1F1F1F]">
-            {/* Row 1: Email */}
+          {/* Right Column: Clean Vertical Action Rows with Vector Icons (6 cols) */}
+          <div className="lg:col-span-6 w-full space-y-0 divide-y divide-[#D8D2C5] dark:divide-[#262E38] border-y border-[#D8D2C5] dark:border-[#262E38]">
+            {/* Row 1: Email (Cyan) */}
             <a
               href="mailto:yathusaini10@gmail.com"
-              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:border-[#0284C7]/60 dark:hover:border-[#58C7D9]/60"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <Mail size={20} className="text-[#5F6670] dark:text-[#878787] group-hover:text-[#0284C7] dark:group-hover:text-[#58C7D9] transition-colors shrink-0 mt-0.5" />
+                <Mail size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-xs font-mono text-[#5F6670] dark:text-[#878787] group-hover:text-[#0284C7] dark:group-hover:text-[#58C7D9] uppercase tracking-widest block transition-colors">
-                    Email
+                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] uppercase tracking-widest block transition-colors">
+                    EMAIL
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-medium text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors block truncate">
                     yathusaini10@gmail.com
                   </span>
                 </div>
               </div>
 
-              <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-[#1F1F1F] bg-white dark:bg-transparent group-hover:border-[#0284C7] dark:group-hover:border-[#58C7D9] flex items-center justify-center text-[#5F6670] dark:text-[#878787] group-hover:text-[#0284C7] dark:group-hover:text-white transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#0284C7] dark:text-[#58C7D9]" />
+              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#1D9AA2] dark:group-hover:border-[#35C7D0] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#1D9AA2] dark:text-[#35C7D0]" />
               </div>
             </a>
 
-            {/* Row 2: GitHub */}
+            {/* Row 2: GitHub (Amber) */}
             <a
               href="https://github.com/laggincodes"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:border-[#0D9488]/60 dark:hover:border-[#4AAE9B]/60"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <GithubIcon size={20} className="text-[#5F6670] dark:text-[#878787] group-hover:text-[#0D9488] dark:group-hover:text-[#4AAE9B] transition-colors shrink-0 mt-0.5" />
+                <GithubIcon size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-xs font-mono text-[#5F6670] dark:text-[#878787] group-hover:text-[#0D9488] dark:group-hover:text-[#4AAE9B] uppercase tracking-widest block transition-colors">
-                    GitHub
+                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] uppercase tracking-widest block transition-colors">
+                    GITHUB
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-medium text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0D9488] dark:group-hover:text-white transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-colors block truncate">
                     @laggincodes
                   </span>
                 </div>
               </div>
 
-              <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-[#1F1F1F] bg-white dark:bg-transparent group-hover:border-[#0D9488] dark:group-hover:border-[#4AAE9B] flex items-center justify-center text-[#5F6670] dark:text-[#878787] group-hover:text-[#0D9488] dark:group-hover:text-white transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#0D9488] dark:text-[#4AAE9B]" />
+              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#C57D28] dark:group-hover:border-[#E7A85B] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C57D28] dark:text-[#E7A85B]" />
               </div>
             </a>
 
-            {/* Row 3: LinkedIn */}
+            {/* Row 3: LinkedIn (Violet) */}
             <a
               href="https://www.linkedin.com/in/yatharth-saini-6bb584389"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 sm:py-6 border-b border-slate-200/80 dark:border-[#1F1F1F] transition-colors hover:border-[#6D5DE7]/60 dark:hover:border-[#8B7CFF]/60"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <LinkedinIcon size={20} className="text-[#5F6670] dark:text-[#878787] group-hover:text-[#6D5DE7] dark:group-hover:text-[#8B7CFF] transition-colors shrink-0 mt-0.5" />
+                <LinkedinIcon size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-xs font-mono text-[#5F6670] dark:text-[#878787] group-hover:text-[#6D5DE7] dark:group-hover:text-[#8B7CFF] uppercase tracking-widest block transition-colors">
-                    LinkedIn
+                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] uppercase tracking-widest block transition-colors">
+                    LINKEDIN
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-medium text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#6D5DE7] dark:group-hover:text-white transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-colors block truncate">
                     Yatharth Saini
                   </span>
                 </div>
               </div>
 
-              <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-[#1F1F1F] bg-white dark:bg-transparent group-hover:border-[#6D5DE7] dark:group-hover:border-[#8B7CFF] flex items-center justify-center text-[#5F6670] dark:text-[#878787] group-hover:text-[#6D5DE7] dark:group-hover:text-white transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#6D5DE7] dark:text-[#8B7CFF]" />
+              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#6C5CE7] dark:group-hover:border-[#9A8CFF] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#6C5CE7] dark:text-[#9A8CFF]" />
               </div>
             </a>
           </div>
@@ -138,11 +135,11 @@ export const Contact: React.FC = () => {
       </div>
 
       {/* Infinite Horizontal GSAP Marquee Banner */}
-      <div className="w-full overflow-hidden pt-24 pb-8 select-none opacity-60">
-        <div ref={marqueeRef} className="flex whitespace-nowrap text-xs md:text-sm font-mono uppercase tracking-[0.4em] text-[#5F6670] dark:text-[#878787]">
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span> AI PRODUCTS <span className="text-[#6D5DE7] dark:text-[#8B7CFF]">•</span> VOICE INTERFACES <span className="text-[#0D9488] dark:text-[#4AAE9B]">•</span> HEALTHCARE AI <span className="text-[#B45309] dark:text-[#D6A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span></span>
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span> AI PRODUCTS <span className="text-[#6D5DE7] dark:text-[#8B7CFF]">•</span> VOICE INTERFACES <span className="text-[#0D9488] dark:text-[#4AAE9B]">•</span> HEALTHCARE AI <span className="text-[#B45309] dark:text-[#D6A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span></span>
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span> AI PRODUCTS <span className="text-[#6D5DE7] dark:text-[#8B7CFF]">•</span> VOICE INTERFACES <span className="text-[#0D9488] dark:text-[#4AAE9B]">•</span> HEALTHCARE AI <span className="text-[#B45309] dark:text-[#D6A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#0284C7] dark:text-[#58C7D9]">•</span></span>
+      <div className="w-full overflow-hidden pt-20 sm:pt-24 pb-8 select-none opacity-60">
+        <div ref={marqueeRef} className="flex whitespace-nowrap text-xs md:text-sm font-mono uppercase tracking-[0.4em] text-[#555C66] dark:text-[#9EA3AC]">
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> VOICE INTERFACES <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> HEALTHCARE AI <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> VOICE INTERFACES <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> HEALTHCARE AI <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> VOICE INTERFACES <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> HEALTHCARE AI <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> PRIVACY SYSTEMS <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
         </div>
       </div>
     </section>

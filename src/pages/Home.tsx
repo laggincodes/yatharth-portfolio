@@ -16,7 +16,7 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = ({ isLoaded, onOpenCommandMenu }) => {
   return (
-    <div className="relative w-full min-h-screen bg-[#F3F5F7] dark:bg-[#0A0A0A] text-[#111318] dark:text-[#F4F4F4] overflow-x-hidden selection:bg-[#2B7DB8] selection:text-white dark:selection:bg-[#4E85BF] dark:selection:text-white transition-colors duration-300">
+    <div className="relative w-full min-h-screen bg-[#F1EEE7] dark:bg-[#0D1014] text-[#171A1D] dark:text-[#F1EFE8] overflow-x-hidden selection:bg-[#35C7D0]/20 selection:text-[#171A1D] dark:selection:bg-[#35C7D0]/30 dark:selection:text-[#F1EFE8] transition-colors duration-300">
       {/* Full Screen Video Background */}
       <InteractiveBackground />
 

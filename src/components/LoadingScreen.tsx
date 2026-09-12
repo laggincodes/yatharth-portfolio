@@ -44,12 +44,12 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <motion.div
           exit={{ y: '-100%' }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100000] bg-[#0A0A0A] text-[#F4F4F4] flex flex-col justify-between p-8 md:p-12 select-none"
+          className="fixed inset-0 z-[100000] bg-[#0D1014] text-[#EDEDED] flex flex-col justify-between p-8 md:p-12 select-none"
         >
           {/* Top Header */}
-          <div className="flex justify-between items-center text-xs font-mono text-[#878787]">
+          <div className="flex justify-between items-center text-xs font-mono text-[#9EA3AC]">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#4E85BF] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#35C7D0] animate-pulse" />
               <span>YATHARTH SAINI</span>
             </div>
             <span>PORTFOLIO 2026</span>
@@ -63,25 +63,25 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="font-display italic text-4xl md:text-6xl text-[#F4F4F4]"
+              className="font-display italic text-4xl md:text-6xl text-[#EDEDED]"
             >
               {ACTION_WORDS[wordIndex]}.
             </motion.h1>
 
-            <div className="font-mono text-7xl md:text-9xl font-light tracking-tighter text-[#F4F4F4]">
+            <div className="font-mono text-7xl md:text-9xl font-light tracking-tighter text-[#EDEDED]">
               {progress.toString().padStart(3, '0')}
             </div>
           </div>
 
           {/* Bottom Progress Line */}
           <div className="space-y-2">
-            <div className="flex justify-between text-[11px] font-mono text-[#878787]">
+            <div className="flex justify-between text-[11px] font-mono text-[#9EA3AC]">
               <span>LOADING SYSTEM</span>
-              <span>{progress}%</span>
+              <span className="text-[#35C7D0] font-semibold">{progress}%</span>
             </div>
-            <div className="w-full h-[2px] bg-[#1F1F1F] overflow-hidden rounded-full">
+            <div className="w-full h-[2px] bg-[#202833] overflow-hidden rounded-full">
               <div
-                className="h-full bg-gradient-to-r from-[#89AACC] to-[#4E85BF] transition-all duration-100 ease-out"
+                className="h-full bg-gradient-to-r from-[#1D9AA2] to-[#35C7D0] transition-all duration-100 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>

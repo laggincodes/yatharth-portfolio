@@ -2,11 +2,11 @@
 <html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230A0A0A' stroke='%234E85BF' stroke-width='6'/><text x='50' y='60' font-family='sans-serif' font-weight='bold' font-size='38' fill='%23F4F4F4' text-anchor='middle'>YS</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230B0D10' stroke='%235DA9FF' stroke-width='6'/><text x='50' y='60' font-family='sans-serif' font-weight='bold' font-size='38' fill='%23F1EFE8' text-anchor='middle'>YS</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
     <title>Yatharth Saini — AI Builder & CSE Student</title>
     <meta name="description" content="Yatharth Saini's portfolio showcasing AI, voice, frontend and full-stack projects." />
-    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="theme-color" content="#0D1014" />
 
     <!-- Early Theme Detection Script to prevent flash of unstyled theme -->
     <script>
@@ -17,17 +17,14 @@
           if (saved === 'light') {
             root.classList.remove('dark');
             root.classList.add('light');
-          } else if (saved === 'dark') {
-            root.classList.add('dark');
-            root.classList.remove('light');
-          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            root.classList.remove('dark');
-            root.classList.add('light');
           } else {
+            // Always default to dark mode on fresh visits or when no saved preference
             root.classList.add('dark');
             root.classList.remove('light');
           }
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
       })();
     </script>
 

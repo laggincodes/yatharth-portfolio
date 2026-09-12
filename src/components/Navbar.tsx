@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Command } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
@@ -21,27 +21,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-      className="w-full max-w-5xl mx-auto flex justify-center items-center z-30 pointer-events-none px-2 sm:px-4 py-2"
+      className="w-full max-w-5xl mx-auto flex justify-center items-center z-30 pointer-events-none px-2 sm:px-4 py-2 sm:py-3"
     >
       <nav
-        className="pointer-events-auto flex items-center gap-1 sm:gap-2 md:gap-3 px-2 sm:px-3 md:px-4 py-1.5 md:py-2 rounded-full border transition-all duration-300 bg-white/85 dark:bg-[#141414]/85 backdrop-blur-xl border-slate-200/80 dark:border-[#1F1F1F] shadow-sm dark:shadow-xl max-w-full"
+        className="pointer-events-auto flex items-center justify-between sm:justify-center gap-1 sm:gap-2 md:gap-3 px-2 sm:px-3.5 md:px-4 py-1.5 md:py-2 rounded-full border transition-all duration-300 bg-[#F5F1E9]/95 dark:bg-[#151A21]/95 border-[#D8D2C5] dark:border-[#262E38] shadow-xs max-w-full"
       >
         {/* Logo: Circle with Accent Ring */}
         <a
           href="#hero"
-          className="group relative flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-[#1F1F1F] hover:border-[#0284C7]/60 dark:hover:border-[#58C7D9]/60 transition-transform duration-300 hover:scale-105"
+          className="group relative flex items-center justify-center shrink-0 w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#F5F1E9] dark:bg-[#11151A] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#35C7D0]/60 dark:hover:border-[#35C7D0]/60 transition-transform duration-300 hover:scale-105"
           aria-label="Yatharth Saini Home"
         >
-          {/* Subtle Gradient Accent Ring */}
-          <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#58C7D9] via-[#4E85BF] to-[#8B7CFF] opacity-30 dark:opacity-40 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-[1px]" />
-          <span className="text-[11px] sm:text-xs font-bold tracking-tight text-[#111318] dark:text-[#F4F4F4] group-hover:text-[#0284C7] dark:group-hover:text-white transition-colors">
+          {/* Subtle Cyan/Violet Accent Ring */}
+          <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#35C7D0] via-[#6FA8FF] to-[#9A8CFF] opacity-35 dark:opacity-45 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-[1px]" />
+          <span className="text-xs sm:text-xs md:text-sm font-semibold tracking-tight text-[#171A1D] dark:text-[#F1EFE8] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors">
             YS
           </span>
         </a>
 
-        <div className="hidden md:block h-4 w-[1px] bg-slate-200 dark:bg-[#1F1F1F] shrink-0" />
+        <div className="hidden sm:block h-4 w-[1px] bg-[#D8D2C5] dark:bg-[#262E38] shrink-0" />
 
-        {/* Nav Links: Home, Work, About */}
+        {/* Nav Links: Home, Work, About (13-15px readable text) */}
         <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.substring(1);
@@ -49,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
               <a
                 key={item.label}
                 href={item.href}
-                className={`relative px-2 sm:px-2.5 md:px-3 py-1 md:py-1.5 text-xs sm:text-xs md:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
+                className={`relative px-2.5 sm:px-3 md:px-3.5 py-1.5 text-[13px] sm:text-[14px] md:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-[#0284C7] dark:text-[#58C7D9] bg-[#0284C7]/10 dark:bg-[#58C7D9]/10 border border-[#0284C7]/20 dark:border-[#58C7D9]/20'
-                    : 'text-[#5F6670] dark:text-[#878787] hover:text-[#111318] dark:hover:text-[#F4F4F4] hover:bg-slate-100/70 dark:hover:bg-[#1F1F1F]/40'
+                    ? 'text-[#1D9AA2] dark:text-[#35C7D0] bg-[#1D9AA2]/10 dark:bg-[#35C7D0]/12 border border-[#1D9AA2]/25 dark:border-[#35C7D0]/25 font-semibold'
+                    : 'text-[#59616A] dark:text-[#9AA0AA] hover:text-[#171A1D] dark:hover:text-[#F1EFE8] hover:bg-[#E9E5DC] dark:hover:bg-[#1C2229]'
                 }`}
               >
                 {item.label}
@@ -60,44 +60,45 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
             );
           })}
 
-          {/* Resume Link - Responsive: full "Resume ↗" on md:, compact "CV ↗" on mobile >=360px */}
+          {/* Resume Link - Shown on screens >= 440px */}
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-[360px]:inline-flex px-1.5 sm:px-2 md:px-2.5 py-1 md:py-1.5 text-xs text-[#5F6670] dark:text-[#878787] hover:text-[#0284C7] dark:hover:text-[#58C7D9] transition-colors items-center gap-0.5 sm:gap-1 shrink-0 whitespace-nowrap"
-            title="View Resume"
+            className="hidden min-[440px]:inline-flex px-2 sm:px-2.5 md:px-3 py-1.5 text-[13px] sm:text-xs md:text-sm text-[#59616A] dark:text-[#9AA0AA] hover:text-[#1D9AA2] dark:hover:text-[#35C7D0] transition-colors items-center gap-1 shrink-0 whitespace-nowrap font-medium"
+            title="View Resume (PDF)"
           >
             <span className="hidden sm:inline">Resume</span>
             <span className="sm:hidden">CV</span>
-            <span className="text-[10px]">↗</span>
+            <span className="text-[10px] text-[#C57D28] dark:text-[#E7A85B]">↗</span>
           </a>
         </div>
 
-        <div className="hidden md:block h-4 w-[1px] bg-slate-200 dark:bg-[#1F1F1F] shrink-0" />
+        <div className="hidden sm:block h-4 w-[1px] bg-[#D8D2C5] dark:bg-[#262E38] shrink-0" />
 
-        {/* Right Actions: ThemeToggle, Cmd+K, Say Hi */}
-        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+        {/* Right Actions: ThemeToggle, Search, Say Hi */}
+        <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 shrink-0">
           {/* Theme Toggle Button */}
-          <ThemeToggle />
+          <ThemeToggle className="w-8 h-8 md:w-8.5 md:h-8.5" />
 
-          {/* Command Menu Button (desktop only) */}
+          {/* Clean Search / Command Menu Icon Button (magnifying-glass only) */}
           <button
+            type="button"
             onClick={onOpenCommandMenu}
-            className="hidden md:flex items-center gap-1.5 px-2.5 py-1 text-xs text-[#5F6670] dark:text-[#878787] hover:text-[#0284C7] dark:hover:text-[#58C7D9] bg-slate-100/70 dark:bg-[#0A0A0A]/50 hover:bg-slate-200 dark:hover:bg-[#1F1F1F] rounded-full border border-slate-200 dark:border-[#1F1F1F] transition-all duration-200 shrink-0"
-            title="Open Command Menu (Cmd+K)"
+            aria-label="Open search and command menu"
+            className="w-8 h-8 md:w-8.5 md:h-8.5 rounded-full flex items-center justify-center text-[#59616A] dark:text-[#9AA0AA] hover:text-[#1D9AA2] dark:hover:text-[#35C7D0] bg-[#E9E5DC]/80 dark:bg-[#181D24]/80 hover:bg-[#E2DDD3] dark:hover:bg-[#20262F] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#35C7D0]/40 dark:hover:border-[#35C7D0]/40 transition-all duration-200 shrink-0 cursor-pointer"
+            title="Open search and command menu"
           >
-            <Command size={12} />
-            <span className="font-mono text-[10px]">K</span>
+            <Search size={14} className="sm:w-3.5 sm:h-3.5" />
           </button>
 
-          {/* CTA: Say Hi */}
+          {/* CTA: Say Hi (Shown on screens >= 520px) */}
           <a
             href="#contact"
-            className="flex items-center gap-0.5 sm:gap-1 px-2.5 sm:px-3 md:px-3.5 py-1 md:py-1.5 text-xs sm:text-xs md:text-sm font-medium text-white dark:text-[#0A0A0A] bg-[#111318] dark:bg-[#F4F4F4] hover:bg-black dark:hover:bg-white rounded-full transition-all duration-200 hover:scale-[1.02] shadow-sm shrink-0 whitespace-nowrap"
+            className="hidden min-[520px]:inline-flex group items-center gap-1 px-3 sm:px-3.5 md:px-4 py-1.5 text-xs sm:text-xs md:text-sm font-semibold text-[#F1EEE7] dark:text-[#0D1014] bg-[#171A1D] dark:bg-[#F1EFE8] hover:bg-black dark:hover:bg-white rounded-full transition-all duration-200 hover:scale-[1.02] shadow-xs shrink-0 whitespace-nowrap"
           >
             <span>Say hi</span>
-            <span className="text-[10px] sm:text-xs">↗</span>
+            <span className="text-[10px] sm:text-xs text-[#E7A85B] dark:text-[#C57D28] transition-transform group-hover:translate-x-0.5">↗</span>
           </a>
         </div>
       </nav>

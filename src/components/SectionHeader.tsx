@@ -9,6 +9,7 @@ interface SectionHeaderProps {
   description?: string;
   actionText?: string;
   actionHref?: string;
+  numberColor?: string;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -19,45 +20,52 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   description,
   actionText,
   actionHref,
+  numberColor = "text-[#1D9AA2] dark:text-[#35C7D0]",
 }) => {
   return (
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200/80 dark:border-[#1F1F1F] pb-8 transition-colors duration-200">
-      <div className="space-y-4 max-w-2xl">
-        {/* Eyebrow Number & Label */}
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-[#5F6670] dark:text-[#878787]">
-          <span className="text-[#0284C7] dark:text-[#4E85BF] font-semibold">{number}</span>
-          <span>/</span>
-          <span>{label}</span>
+    <div className="border-b border-[#D8D2C5] dark:border-[#262E38] pb-8 sm:pb-10 transition-colors duration-200">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-end justify-between">
+        {/* Left Column: Eyebrow + Headline (7 cols) */}
+        <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+          {/* Eyebrow Number & Label */}
+          <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#59616A] dark:text-[#9AA0AA]">
+            <span className={`${numberColor} font-semibold font-mono`}>{number}</span>
+            <span className="text-[#D8D2C5] dark:text-[#262E38]">/</span>
+            <span className="font-semibold">{label}</span>
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[#171A1D] dark:text-[#F1EFE8] tracking-tight leading-tight">
+            {titleNormal}{' '}
+            <span className="font-display italic font-normal text-[#171A1D] dark:text-[#F1EFE8]">
+              {titleItalic}
+            </span>
+          </h2>
         </div>
 
-        {/* Headline */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#111318] dark:text-[#F4F4F4] tracking-tight leading-tight sm:leading-none transition-colors duration-200">
-          {titleNormal}{' '}
-          <span className="font-display italic text-[#111318] dark:text-[#F4F4F4] font-normal">
-            {titleItalic}
-          </span>
-        </h2>
+        {/* Right Column: Description & Optional Action Link (5 cols) */}
+        <div className="lg:col-span-5 flex flex-col justify-end space-y-4">
+          {description && (
+            <p className="text-sm sm:text-base text-[#59616A] dark:text-[#9AA0AA] font-normal leading-relaxed">
+              {description}
+            </p>
+          )}
 
-        {/* Description */}
-        {description && (
-          <p className="text-base sm:text-lg text-[#5F6670] dark:text-[#878787] font-normal leading-relaxed transition-colors duration-200">
-            {description}
-          </p>
-        )}
+          {actionText && actionHref && (
+            <div className="pt-1">
+              <a
+                href={actionHref}
+                target={actionHref.startsWith('http') ? '_blank' : '_self'}
+                rel={actionHref.startsWith('http') ? 'noopener noreferrer' : ''}
+                className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#59616A] dark:text-[#9AA0AA] hover:text-[#1D9AA2] dark:hover:text-[#35C7D0] transition-colors group font-semibold cursor-pointer"
+              >
+                <span>{actionText}</span>
+                <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          )}
+        </div>
       </div>
-
-      {/* Action Link */}
-      {actionText && actionHref && (
-        <a
-          href={actionHref}
-          target={actionHref.startsWith('http') ? '_blank' : '_self'}
-          rel={actionHref.startsWith('http') ? 'noopener noreferrer' : ''}
-          className="inline-flex items-center gap-1 text-xs font-mono text-[#5F6670] dark:text-[#878787] hover:text-[#0284C7] dark:hover:text-[#F4F4F4] transition-colors group shrink-0"
-        >
-          <span>{actionText}</span>
-          <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
-      )}
     </div>
   );
 };

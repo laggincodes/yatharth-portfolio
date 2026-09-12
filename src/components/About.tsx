@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from './SectionHeader';
-import { MapPin, GraduationCap, Terminal } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="w-full bg-[#F8FAFC] dark:bg-[#0C0C0D] py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 border-t border-slate-200/80 dark:border-[#1F1F1F]/80 transition-colors duration-200">
+    <section id="about" className="w-full bg-[#EEF3EF] dark:bg-[#121915] py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 border-t border-[#D0D9D2] dark:border-[#223028] transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-12 sm:space-y-16">
         {/* Section Header */}
         <SectionHeader
@@ -14,70 +13,84 @@ export const About: React.FC = () => {
           titleNormal="A little"
           titleItalic="about me."
           description="Product-focused developer exploring the intersection of AI models, voice interfaces, healthcare AI, and privacy-focused systems."
+          numberColor="text-[#2E885E] dark:text-[#72C7A0]"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Main Story Text Column */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Main Story & Large Editorial Anchor (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] hover:border-[#0284C7]/30 dark:hover:border-[#58C7D9]/30 rounded-3xl p-6 sm:p-8 md:p-10 space-y-6 text-[#5F6670] dark:text-[#878787] text-base sm:text-lg leading-relaxed transition-colors duration-200 shadow-sm"
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-7 space-y-6 sm:space-y-8 text-[#555C66] dark:text-[#9EA3AC] text-base sm:text-lg leading-relaxed font-normal"
           >
-            <p className="text-[#111318] dark:text-[#F4F4F4] text-lg md:text-xl font-light leading-snug">
-              I'm <span className="font-medium text-[#111318] dark:text-white">Yatharth Saini</span>, a Computer Science Engineering student focused on building <span className="text-[#0284C7] dark:text-[#58C7D9] font-normal">AI-powered products</span>, voice interfaces, and modern web systems.
-            </p>
+            {/* Visual Anchor: Large Serif Phrase */}
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-medium text-[#171A1D] dark:text-[#EDEDED] leading-[1.25] tracking-tight pb-6 border-b border-[#D0D9D2] dark:border-[#223028]">
+              "I learn by <span className="font-display italic font-normal text-[#2E885E] dark:text-[#72C7A0]">building, breaking things</span>, and turning raw experiments into usable software."
+            </h3>
 
-            <p>
-              I learn by <span className="text-[#0284C7] dark:text-[#58C7D9] font-medium">building, breaking things, debugging them</span>, and turning experiments into usable software. Whether it's building real-time voice AI co-teachers (<span className="text-[#111318] dark:text-[#F4F4F4] font-medium">EchoTutor</span>), voice healthcare triage platforms (<span className="text-[#111318] dark:text-[#F4F4F4] font-medium">Agora Medicare AI</span>), or full-stack privacy analysis platforms (<span className="text-[#111318] dark:text-[#F4F4F4] font-medium">AI Privacy Risk Simulator</span>), I focus on clean user experience, low latency, and solid engineering mechanics.
-            </p>
+            <div className="space-y-4 sm:space-y-5">
+              <p>
+                I'm <span className="font-semibold text-[#171A1D] dark:text-[#EDEDED]">Yatharth Saini</span>, a Computer Science Engineering student based in Delhi. I specialize in building voice AI platforms, conversational agents, and high-performance web systems that prioritize clean user experience and low latency.
+              </p>
 
-            <p>
-              I believe great developer portfolios should show real projects, accurate engineering contributions, and thoughtful interface execution rather than generic template fluff.
-            </p>
+              <p>
+                My work spans building real-time voice AI co-teachers (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">EchoTutor</span>), real-time healthcare triage protocols (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">Agora Medicare AI</span>), and privacy leak risk analyzers (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">AI Privacy Risk Simulator</span>).
+              </p>
 
-            <div className="pt-4 flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm font-mono text-[#111318] dark:text-[#F4F4F4]">
-              <div className="flex items-center gap-2 bg-slate-100 dark:bg-[#0A0A0A] px-3.5 py-2 rounded-full border border-slate-200 dark:border-[#1F1F1F]">
-                <GraduationCap size={14} className="text-[#0284C7] dark:text-[#58C7D9]" />
-                <span>CSE Student</span>
-              </div>
-              <div className="flex items-center gap-2 bg-slate-100 dark:bg-[#0A0A0A] px-3.5 py-2 rounded-full border border-slate-200 dark:border-[#1F1F1F]">
-                <MapPin size={14} className="text-[#6D5DE7] dark:text-[#8B7CFF]" />
-                <span>Delhi, India</span>
-              </div>
-              <div className="flex items-center gap-2 bg-slate-100 dark:bg-[#0A0A0A] px-3.5 py-2 rounded-full border border-slate-200 dark:border-[#1F1F1F]">
-                <Terminal size={14} className="text-[#B45309] dark:text-[#D6A85B]" />
-                <span>AI & Voice Builder</span>
-              </div>
+              <p>
+                I believe great digital products communicate through intuitive hierarchy, honest presentation of technical contributions, and restrained visual design rather than stock templates or superficial animations.
+              </p>
             </div>
           </motion.div>
 
-          {/* Side Editorial Highlight Box */}
+          {/* Right Column: Editorial Metadata Ledger (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#1F1F1F] hover:border-[#B45309]/30 dark:hover:border-[#D6A85B]/30 rounded-3xl p-6 sm:p-8 md:p-10 space-y-6 flex flex-col justify-between transition-colors duration-200 shadow-sm"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-[#D0D9D2] dark:border-[#223028] pt-8 lg:pt-0 lg:pl-10 space-y-5 sm:space-y-6"
           >
-            <div className="space-y-4">
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#B45309] dark:text-[#D6A85B]">
-                PHILOSOPHY
+            <div className="space-y-1">
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#2E885E] dark:text-[#72C7A0] block font-semibold">
+                METADATA & SPECIFICATION
               </span>
-              <h3 className="font-display italic text-3xl md:text-4xl text-[#111318] dark:text-[#F4F4F4] leading-tight">
-                "Function-driven design with <span className="text-[#B45309] dark:text-[#D6A85B] font-normal">restrained aesthetics.</span>"
-              </h3>
-              <p className="text-sm sm:text-base text-[#5F6670] dark:text-[#878787] font-normal leading-relaxed">
-                Prioritizing truthfulness, intuitive layout hierarchy, low latency performance, and micro-interactions that serve a clear utility.
+              <p className="text-xs font-mono text-[#555C66] dark:text-[#9EA3AC]">
+                PROFILE DOSSIER · EDITION 2026
               </p>
             </div>
 
-            <div className="pt-6 border-t border-slate-200 dark:border-[#1F1F1F] flex items-center justify-between text-xs font-mono text-[#5F6670] dark:text-[#878787]">
-              <span>STATUS</span>
-              <span className="flex items-center gap-1.5 text-[#111318] dark:text-[#F4F4F4]">
-                <span className="w-2 h-2 rounded-full bg-[#B45309] dark:bg-[#D6A85B] animate-pulse" />
-                Open to opportunities
+            <div className="divide-y divide-[#D0D9D2] dark:divide-[#223028] border-y border-[#D0D9D2] dark:border-[#223028] text-xs sm:text-sm font-mono text-[#555C66] dark:text-[#9EA3AC]">
+              <div className="py-3 flex justify-between items-baseline">
+                <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">LOCATION</span>
+                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">DELHI, INDIA</span>
+              </div>
+              <div className="py-3 flex justify-between items-baseline">
+                <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">DISCIPLINE</span>
+                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">COMPUTER SCIENCE & ENG.</span>
+              </div>
+              <div className="py-3 flex justify-between items-baseline">
+                <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">FOCUS</span>
+                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">AI · VOICE · WEB SYSTEMS</span>
+              </div>
+              <div className="py-3 flex justify-between items-baseline">
+                <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">PHILOSOPHY</span>
+                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">FUNCTION-DRIVEN DESIGN</span>
+              </div>
+              <div className="py-3 flex justify-between items-baseline">
+                <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">STATUS</span>
+                <span className="inline-flex items-center gap-1.5 text-[#171A1D] dark:text-[#EDEDED] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2E885E] dark:bg-[#72C7A0] animate-pulse" />
+                  OPEN TO OPPORTUNITIES
+                </span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <span className="text-xs sm:text-sm font-mono text-[#555C66] dark:text-[#9EA3AC] block leading-relaxed">
+                Available for software engineering internships, AI engineering roles, and high-impact product collaborations.
               </span>
             </div>
           </motion.div>

@@ -6,21 +6,31 @@ export const CustomCursor: React.FC = () => {
   const [isPointerFine, setIsPointerFine] = useState(false);
 
   useEffect(() => {
-    // Desktop fine-pointer check
-    const mediaQuery = window.matchMedia('(pointer: fine)');
-    const isDesktopPointer = mediaQuery.matches && window.innerWidth >= 768;
+    // Desktop fine-pointer check: strictly disabled on touch devices and viewports < 768px
+    const checkIsFineDesktop = () => {
+      const hasFine = window.matchMedia('(pointer: fine)').matches;
+      const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
+      return hasFine && !hasCoarse && window.innerWidth >= 768;
+    };
+
+    const isDesktopPointer = checkIsFineDesktop();
     setIsPointerFine(isDesktopPointer);
 
     const handleMediaChange = () => {
-      setIsPointerFine(window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768);
+      setIsPointerFine(checkIsFineDesktop());
     };
 
-    mediaQuery.addEventListener('change', handleMediaChange);
+    const mediaQueryFine = window.matchMedia('(pointer: fine)');
+    const mediaQueryCoarse = window.matchMedia('(pointer: coarse)');
+
+    mediaQueryFine.addEventListener('change', handleMediaChange);
+    mediaQueryCoarse.addEventListener('change', handleMediaChange);
     window.addEventListener('resize', handleMediaChange);
 
     if (!isDesktopPointer) {
       return () => {
-        mediaQuery.removeEventListener('change', handleMediaChange);
+        mediaQueryFine.removeEventListener('change', handleMediaChange);
+        mediaQueryCoarse.removeEventListener('change', handleMediaChange);
         window.removeEventListener('resize', handleMediaChange);
       };
     }
@@ -97,7 +107,7 @@ export const CustomCursor: React.FC = () => {
         target.closest('a, button, [role="button"], input, textarea, select, article, .group') !== null;
 
       if (isInteractive && !isReducedMotion) {
-        dotRef.current.style.transform = 'scale(1.4)';
+        dotRef.current.style.transform = 'scale(1.25)';
       } else {
         dotRef.current.style.transform = 'scale(1)';
       }
@@ -111,7 +121,8 @@ export const CustomCursor: React.FC = () => {
     animationFrameId = requestAnimationFrame(updatePosition);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaChange);
+      mediaQueryFine.removeEventListener('change', handleMediaChange);
+      mediaQueryCoarse.removeEventListener('change', handleMediaChange);
       window.removeEventListener('resize', handleMediaChange);
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerleave', handlePointerLeave);
@@ -133,10 +144,10 @@ export const CustomCursor: React.FC = () => {
         transform: 'translate3d(-1000px, -1000px, 0)',
       }}
     >
-      {/* Inner dot handles scale expansion independently without affecting outer position translate3d */}
+      {/* 14px small solid circle (dark in light mode, solid white in dark mode) */}
       <div
         ref={dotRef}
-        className="w-2.5 h-2.5 rounded-full bg-white border border-black/25 dark:border-white/20 shadow-[0_0_2px_rgba(0,0,0,0.35)] dark:shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="w-3.5 h-3.5 rounded-full bg-[#171A1D] dark:bg-white border border-black/15 dark:border-white/20 shadow-xs dark:shadow-none transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
         style={{
           willChange: 'transform',
           transform: 'scale(1)',

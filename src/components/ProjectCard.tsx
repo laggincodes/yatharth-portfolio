@@ -1,128 +1,233 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import type { Project } from '../data/projects';
 
 interface ProjectCardProps {
   project: Project;
   index: number;
-  onSelect: (project: Project) => void;
+  isExpanded: boolean;
+  onToggleExpand: () => void;
+  onSelectCaseStudy: (project: Project) => void;
 }
 
-const getProjectAccent = (id: string) => {
-  switch (id) {
-    case 'echotutor':
-      return {
-        hoverBorder: 'hover:border-[#58C7D9]/50',
-        textAccent: 'text-[#58C7D9]',
-        badgeBg: 'bg-[#58C7D9]/10 text-[#58C7D9] border-[#58C7D9]/30',
-        arrowColor: 'text-[#58C7D9]',
-      };
-    case 'agora-medicare-ai':
-      return {
-        hoverBorder: 'hover:border-[#4AAE9B]/50',
-        textAccent: 'text-[#4AAE9B]',
-        badgeBg: 'bg-[#4AAE9B]/10 text-[#4AAE9B] border-[#4AAE9B]/30',
-        arrowColor: 'text-[#4AAE9B]',
-      };
-    case 'ai-privacy-risk-simulator':
-    default:
-      return {
-        hoverBorder: 'hover:border-[#8B7CFF]/50',
-        textAccent: 'text-[#8B7CFF]',
-        badgeBg: 'bg-[#8B7CFF]/10 text-[#8B7CFF] border-[#8B7CFF]/30',
-        arrowColor: 'text-[#8B7CFF]',
-      };
-  }
+const ACCENT_STYLES = {
+  echotutor: {
+    cardBg: 'bg-[#F0F7F6] dark:bg-[#0E1719] hover:bg-[#EAF4F3] dark:hover:bg-[#111C1F]',
+    cardBorder: 'border-[#1D9AA2]/30 dark:border-[#35C7D0]/25 hover:border-[#1D9AA2]/60 dark:hover:border-[#35C7D0]/60',
+    divider: 'border-[#1D9AA2]/20 dark:border-[#35C7D0]/20',
+    numColor: 'text-[#1D9AA2] dark:text-[#35C7D0]',
+    badge: 'text-[#1D9AA2] dark:text-[#35C7D0] bg-[#1D9AA2]/10 dark:bg-[#35C7D0]/12 border-[#1D9AA2]/25 dark:border-[#35C7D0]/30',
+    expandBtn: 'bg-[#1D9AA2]/10 hover:bg-[#1D9AA2]/18 dark:bg-[#35C7D0]/10 dark:hover:bg-[#35C7D0]/20 text-[#1D9AA2] dark:text-[#35C7D0] border-[#1D9AA2]/25 dark:border-[#35C7D0]/30',
+    titleHover: 'group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0]',
+    bulletColor: 'text-[#1D9AA2] dark:text-[#35C7D0]',
+    techPill: 'bg-[#E5F1F0] dark:bg-[#132226] border-[#1D9AA2]/20 dark:border-[#35C7D0]/25 text-[#171A1D] dark:text-[#D5F0F2]',
+    btnPrimary: 'bg-[#1D9AA2] hover:bg-[#17858C] text-white dark:bg-[#35C7D0] dark:text-[#0B1516] dark:hover:bg-[#48DEE6] font-semibold',
+    linkHover: 'hover:text-[#1D9AA2] dark:hover:text-[#35C7D0]',
+  },
+  'agora-medicare-ai': {
+    cardBg: 'bg-[#F8F3EB] dark:bg-[#18140F] hover:bg-[#F5EDE2] dark:hover:bg-[#1D1812]',
+    cardBorder: 'border-[#C57D28]/30 dark:border-[#E7A85B]/25 hover:border-[#C57D28]/60 dark:hover:border-[#E7A85B]/60',
+    divider: 'border-[#C57D28]/20 dark:border-[#E7A85B]/20',
+    numColor: 'text-[#C57D28] dark:text-[#E7A85B]',
+    badge: 'text-[#C57D28] dark:text-[#E7A85B] bg-[#C57D28]/10 dark:bg-[#E7A85B]/12 border-[#C57D28]/25 dark:border-[#E7A85B]/30',
+    expandBtn: 'bg-[#C57D28]/10 hover:bg-[#C57D28]/18 dark:bg-[#E7A85B]/10 dark:hover:bg-[#E7A85B]/20 text-[#C57D28] dark:text-[#E7A85B] border-[#C57D28]/25 dark:border-[#E7A85B]/30',
+    titleHover: 'group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B]',
+    bulletColor: 'text-[#C57D28] dark:text-[#E7A85B]',
+    techPill: 'bg-[#F2E8DB] dark:bg-[#231C14] border-[#C57D28]/20 dark:border-[#E7A85B]/25 text-[#171A1D] dark:text-[#F3E7D7]',
+    btnPrimary: 'bg-[#C57D28] hover:bg-[#AE6D21] text-white dark:bg-[#E7A85B] dark:text-[#181208] dark:hover:bg-[#F0B873] font-semibold',
+    linkHover: 'hover:text-[#C57D28] dark:hover:text-[#E7A85B]',
+  },
+  'ai-privacy-risk-simulator': {
+    cardBg: 'bg-[#F4F1F8] dark:bg-[#16121D] hover:bg-[#EFEAF5] dark:hover:bg-[#1A1523]',
+    cardBorder: 'border-[#6C5CE7]/30 dark:border-[#9A8CFF]/25 hover:border-[#6C5CE7]/60 dark:hover:border-[#9A8CFF]/60',
+    divider: 'border-[#6C5CE7]/20 dark:border-[#9A8CFF]/20',
+    numColor: 'text-[#6C5CE7] dark:text-[#9A8CFF]',
+    badge: 'text-[#6C5CE7] dark:text-[#9A8CFF] bg-[#6C5CE7]/10 dark:bg-[#9A8CFF]/12 border-[#6C5CE7]/25 dark:border-[#9A8CFF]/30',
+    expandBtn: 'bg-[#6C5CE7]/10 hover:bg-[#6C5CE7]/18 dark:bg-[#9A8CFF]/10 dark:hover:bg-[#9A8CFF]/20 text-[#6C5CE7] dark:text-[#9A8CFF] border-[#6C5CE7]/25 dark:border-[#9A8CFF]/30',
+    titleHover: 'group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF]',
+    bulletColor: 'text-[#6C5CE7] dark:text-[#9A8CFF]',
+    techPill: 'bg-[#ECE5F5] dark:bg-[#201A2B] border-[#6C5CE7]/20 dark:border-[#9A8CFF]/25 text-[#171A1D] dark:text-[#EAE5F8]',
+    btnPrimary: 'bg-[#6C5CE7] hover:bg-[#5B4BC9] text-white dark:bg-[#9A8CFF] dark:text-[#120E1D] dark:hover:bg-[#ACA0FF] font-semibold',
+    linkHover: 'hover:text-[#6C5CE7] dark:hover:text-[#9A8CFF]',
+  },
 };
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onSelect }) => {
-  const accent = getProjectAccent(project.id);
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  index,
+  isExpanded,
+  onToggleExpand,
+  onSelectCaseStudy,
+}) => {
+  const accent =
+    ACCENT_STYLES[project.id as keyof typeof ACCENT_STYLES] ||
+    ACCENT_STYLES['ai-privacy-risk-simulator'];
+  const formattedIndex = String(index + 1).padStart(2, '0');
+
+  // Key contributions (limit to top 4 for controlled height inside cell)
+  const contributions = project.caseStudy?.contributions?.slice(0, 4) || [];
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-      onClick={() => onSelect(project)}
-      className={`group cursor-pointer relative bg-[#141414] hover:bg-[#1A1A1A] border border-[#1F1F1F] ${accent.hoverBorder} rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-500 min-h-[420px] md:min-h-[460px] ${project.gridSpan}`}
+    <article
+      className={`group relative flex flex-col justify-between rounded-xl border p-5 sm:p-6 transition-all duration-250 ease-out shadow-xs hover:shadow-sm ${accent.cardBg} ${accent.cardBorder}`}
     >
-      {/* Background Image Container */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          className="w-full h-full object-cover object-center opacity-40 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-out brightness-[0.95]"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-          }}
-        />
-        {/* Soft Bottom Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/75 to-transparent" />
-      </div>
+      <div>
+        {/* Top Header: 01 + Category + Expand/Collapse Indicator */}
+        <div className={`flex items-center justify-between gap-2 pb-3 border-b ${accent.divider}`}>
+          <div className="flex items-center gap-2">
+            <span className={`font-mono text-xs sm:text-sm font-semibold tracking-wider ${accent.numColor}`}>
+              {formattedIndex}
+            </span>
+            <span className="text-[#59616A]/40 dark:text-[#9AA0AA]/40">/</span>
+            <span
+              className={`text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] px-2.5 py-0.5 rounded border transition-colors duration-200 font-semibold ${accent.badge}`}
+            >
+              {project.category}
+            </span>
+          </div>
 
-      {/* Top Header Information */}
-      <div className="relative z-10 p-6 md:p-8 flex justify-between items-start">
-        <div className="space-y-1">
-          <span className={`text-[11px] font-mono uppercase tracking-[0.25em] px-3 py-1 rounded-full border backdrop-blur-md inline-block ${accent.badgeBg}`}>
-            {project.category}
-          </span>
+          <button
+            type="button"
+            onClick={onToggleExpand}
+            aria-label={isExpanded ? `Collapse ${project.title}` : `Expand ${project.title}`}
+            aria-expanded={isExpanded}
+            className={`w-9 h-9 sm:w-8 sm:h-8 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${accent.expandBtn}`}
+            title={isExpanded ? 'Collapse' : 'Expand details'}
+          >
+            <ChevronDown
+              size={15}
+              className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
+            />
+          </button>
+        </div>
+
+        {/* Main Title & Role */}
+        <div className="pt-3.5 space-y-1">
+          <h3
+            onClick={onToggleExpand}
+            className={`text-xl sm:text-2xl font-semibold tracking-tight text-[#171A1D] dark:text-[#EDEDED] ${accent.titleHover} transition-all duration-200 cursor-pointer group-hover:translate-x-1`}
+          >
+            {project.title}
+          </h3>
           {project.role && (
-            <div className="text-[11px] font-mono text-[#878787] pt-1">
-              Role: <span className="text-[#F4F4F4]">{project.role}</span>
-            </div>
+            <p className="text-xs sm:text-sm font-mono text-[#555C66] dark:text-[#9EA3AC]">
+              Role: <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">{project.role}</span>
+            </p>
           )}
         </div>
 
-        {/* GitHub Action Links */}
-        <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+        {/* Short Description */}
+        <p className={`text-xs sm:text-sm text-[#555C66] dark:text-[#9EA3AC] font-normal leading-relaxed pt-2 ${isExpanded ? '' : 'line-clamp-2'}`}>
+          {project.description}
+        </p>
+
+        {/* 16:10 Project Image with responsive scaling & subtle matte overlay */}
+        <div
+          onClick={onToggleExpand}
+          className={`relative w-full aspect-[16/10] max-h-[260px] sm:max-h-[300px] rounded-lg overflow-hidden border ${accent.divider} bg-[#EAE5DC] dark:bg-[#11151A] mt-4 mb-3 cursor-pointer select-none`}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover object-center brightness-[0.98] dark:brightness-[0.95] group-hover:scale-[1.02] transition-transform duration-300 ease-out"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 dark:from-[#0D1014]/80 via-transparent to-transparent pointer-events-none" />
+        </div>
+
+        {/* In-Cell Expanded Vertical Editorial Section */}
+        {isExpanded && (
+          <div className={`pt-3.5 pb-2 border-t ${accent.divider} space-y-3.5 transition-all duration-200`}>
+            {/* Overview & Purpose */}
+            <div className="space-y-1">
+              <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
+                OVERVIEW & PURPOSE
+              </span>
+              <p className="text-xs sm:text-sm text-[#171A1D] dark:text-[#EDEDED] font-normal leading-relaxed">
+                {project.caseStudy?.overview || project.description}
+              </p>
+            </div>
+
+            {/* Engineering Implementation Highlights */}
+            {contributions.length > 0 && (
+              <div className="space-y-1.5 pt-1">
+                <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
+                  ENGINEERING IMPLEMENTATION
+                </span>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-[#555C66] dark:text-[#9EA3AC]">
+                  {contributions.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                      <span className={`${accent.bulletColor} font-bold shrink-0`}>•</span>
+                      <span className="text-[#171A1D] dark:text-[#EDEDED]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Technology Pills with comfortable wrapping and text size */}
+        <div className="flex flex-wrap gap-1.5 pt-2 pb-4">
+          {project.technologies.slice(0, isExpanded ? undefined : 5).map((tech) => (
+            <span
+              key={tech}
+              className={`text-xs font-mono px-2.5 py-1 rounded border font-medium ${accent.techPill}`}
+            >
+              {tech}
+            </span>
+          ))}
+          {!isExpanded && project.technologies.length > 5 && (
+            <span className="text-xs font-mono px-2 py-1 text-[#555C66] dark:text-[#9EA3AC]">
+              +{project.technologies.length - 5}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Bottom Controls / Actions with 44px min touch targets */}
+      <div className={`pt-3 border-t ${accent.divider} flex items-center justify-between gap-3 text-xs sm:text-sm font-mono`}>
+        <div className="flex items-center gap-2 sm:gap-3">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[#0A0A0A]/80 border border-[#1F1F1F] flex items-center justify-center text-[#878787] hover:text-[#F4F4F4] transition-all duration-300 hover:scale-105 shadow-md backdrop-blur-md"
-              aria-label={`View ${project.title} on GitHub`}
+              className={`min-h-[44px] inline-flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors group/link font-medium cursor-pointer`}
+              title="View GitHub Repository"
             >
-              <GithubIcon size={18} />
+              <GithubIcon size={15} className="shrink-0" />
+              <span>GitHub</span>
+              <span className="text-[10px] opacity-70 group-hover/link:translate-x-0.5 transition-transform">↗</span>
             </a>
           )}
+
+          <button
+            type="button"
+            onClick={onToggleExpand}
+            className={`min-h-[44px] inline-flex items-center px-2.5 py-2 rounded-lg text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors font-medium cursor-pointer`}
+          >
+            {isExpanded ? '− Less' : '+ Details'}
+          </button>
         </div>
+
+        {/* Case Study Modal Trigger with 44px min touch height */}
+        <button
+          type="button"
+          onClick={() => onSelectCaseStudy(project)}
+          className={`min-h-[44px] group/btn inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm transition-all duration-200 shadow-xs cursor-pointer ${accent.btnPrimary}`}
+        >
+          <span>Case Study</span>
+          <ArrowUpRight
+            size={13}
+            className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+          />
+        </button>
       </div>
-
-      {/* Bottom Content Area */}
-      <div className="relative z-10 p-6 md:p-8 space-y-4">
-        <div>
-          <h3 className="text-2xl md:text-3xl font-medium text-[#F4F4F4] group-hover:text-white flex items-center gap-2 transition-colors">
-            <span>{project.title}</span>
-            <ArrowUpRight size={20} className={`opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 ${accent.arrowColor}`} />
-          </h3>
-          <p className="text-sm md:text-base text-[#878787] font-normal leading-relaxed mt-2 max-w-xl">
-            {project.description}
-          </p>
-        </div>
-
-        {/* Tech Stack Pills & Case Study Link */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[#0A0A0A]/70 border border-[#1F1F1F] text-[#878787] group-hover:text-[#F4F4F4] transition-colors"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <span className={`text-[11px] font-mono ${accent.textAccent} group-hover:underline flex items-center gap-1`}>
-            View Case Study →
-          </span>
-        </div>
-      </div>
-    </motion.article>
+    </article>
   );
 };
