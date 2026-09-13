@@ -70,18 +70,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <article
-      className={`group relative flex flex-col justify-between rounded-xl border p-5 sm:p-6 transition-all duration-250 ease-out shadow-xs hover:shadow-sm ${accent.cardBg} ${accent.cardBorder}`}
+      className={`group relative flex flex-col justify-between rounded-xl border p-4 sm:p-5 transition-all duration-250 ease-out shadow-xs hover:shadow-sm ${accent.cardBg} ${accent.cardBorder}`}
     >
       <div>
         {/* Top Header: 01 + Category + Expand/Collapse Indicator */}
-        <div className={`flex items-center justify-between gap-2 pb-3 border-b ${accent.divider}`}>
+        <div className={`flex items-center justify-between gap-2 pb-2.5 border-b ${accent.divider}`}>
           <div className="flex items-center gap-2">
             <span className={`font-mono text-xs sm:text-sm font-semibold tracking-wider ${accent.numColor}`}>
               {formattedIndex}
             </span>
             <span className="text-[#59616A]/40 dark:text-[#9AA0AA]/40">/</span>
             <span
-              className={`text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] px-2.5 py-0.5 rounded border transition-colors duration-200 font-semibold ${accent.badge}`}
+              className={`text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.18em] px-2 py-0.5 rounded border transition-colors duration-200 font-semibold ${accent.badge}`}
             >
               {project.category}
             </span>
@@ -92,40 +92,40 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             onClick={onToggleExpand}
             aria-label={isExpanded ? `Collapse ${project.title}` : `Expand ${project.title}`}
             aria-expanded={isExpanded}
-            className={`w-9 h-9 sm:w-8 sm:h-8 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${accent.expandBtn}`}
+            className={`w-7 h-7 sm:w-7 sm:h-7 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${accent.expandBtn}`}
             title={isExpanded ? 'Collapse' : 'Expand details'}
           >
             <ChevronDown
-              size={15}
+              size={13}
               className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
             />
           </button>
         </div>
 
         {/* Main Title & Role */}
-        <div className="pt-3.5 space-y-1">
+        <div className="pt-2.5 space-y-0.5 sm:space-y-1">
           <h3
             onClick={onToggleExpand}
-            className={`text-xl sm:text-2xl font-semibold tracking-tight text-[#171A1D] dark:text-[#EDEDED] ${accent.titleHover} transition-all duration-200 cursor-pointer group-hover:translate-x-1`}
+            className={`text-lg sm:text-xl font-semibold tracking-tight text-[#171A1D] dark:text-[#EDEDED] ${accent.titleHover} transition-all duration-200 cursor-pointer group-hover:translate-x-1`}
           >
             {project.title}
           </h3>
           {project.role && (
-            <p className="text-xs sm:text-sm font-mono text-[#555C66] dark:text-[#9EA3AC]">
+            <p className="text-[11px] sm:text-xs font-mono text-[#555C66] dark:text-[#9EA3AC]">
               Role: <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">{project.role}</span>
             </p>
           )}
         </div>
 
         {/* Short Description */}
-        <p className={`text-xs sm:text-sm text-[#555C66] dark:text-[#9EA3AC] font-normal leading-relaxed pt-2 ${isExpanded ? '' : 'line-clamp-2'}`}>
+        <p className={`text-xs sm:text-[13px] text-[#555C66] dark:text-[#9EA3AC] font-normal leading-relaxed pt-1.5 ${isExpanded ? '' : 'line-clamp-2'}`}>
           {project.description}
         </p>
 
-        {/* 16:10 Project Image with responsive scaling & subtle matte overlay */}
+        {/* Controlled Compact Project Image with responsive scaling & subtle matte overlay */}
         <div
           onClick={onToggleExpand}
-          className={`relative w-full aspect-[16/10] max-h-[260px] sm:max-h-[300px] rounded-lg overflow-hidden border ${accent.divider} bg-[#EAE5DC] dark:bg-[#11151A] mt-4 mb-3 cursor-pointer select-none`}
+          className={`relative w-full aspect-[16/9] max-h-[175px] sm:max-h-[195px] rounded-lg overflow-hidden border ${accent.divider} bg-[#EAE5DC] dark:bg-[#11151A] mt-3 mb-2.5 cursor-pointer select-none`}
         >
           <img
             src={project.image}
@@ -147,28 +147,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 dark:from-[#0D1014]/80 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        {/* In-Cell Expanded Vertical Editorial Section */}
+        {/* In-Cell Expanded Compact Editorial Section */}
         {isExpanded && (
-          <div className={`pt-3.5 pb-2 border-t ${accent.divider} space-y-3.5 transition-all duration-200`}>
+          <div className={`pt-2.5 pb-1 border-t ${accent.divider} space-y-2.5 transition-all duration-200`}>
             {/* Overview & Purpose */}
-            <div className="space-y-1">
-              <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
+            <div className="space-y-0.5">
+              <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
                 OVERVIEW & PURPOSE
               </span>
-              <p className="text-xs sm:text-sm text-[#171A1D] dark:text-[#EDEDED] font-normal leading-relaxed">
+              <p className="text-xs sm:text-[13px] text-[#171A1D] dark:text-[#EDEDED] font-normal leading-relaxed">
                 {project.caseStudy?.overview || project.description}
               </p>
             </div>
 
-            {/* Engineering Implementation Highlights */}
+            {/* Engineering Implementation Highlights (2-Column Grid on sm+ screens) */}
             {contributions.length > 0 && (
-              <div className="space-y-1.5 pt-1">
-                <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
+              <div className="space-y-1">
+                <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-semibold ${accent.numColor}`}>
                   ENGINEERING IMPLEMENTATION
                 </span>
-                <ul className="space-y-1.5 text-xs sm:text-sm text-[#555C66] dark:text-[#9EA3AC]">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 text-xs text-[#555C66] dark:text-[#9EA3AC]">
                   {contributions.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                    <li key={idx} className="flex items-start gap-1.5 leading-snug">
                       <span className={`${accent.bulletColor} font-bold shrink-0`}>•</span>
                       <span className="text-[#171A1D] dark:text-[#EDEDED]">{item}</span>
                     </li>
@@ -179,36 +179,36 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         )}
 
-        {/* Technology Pills with comfortable wrapping and text size */}
-        <div className="flex flex-wrap gap-1.5 pt-2 pb-4">
+        {/* Technology Pills with compact padding */}
+        <div className="flex flex-wrap gap-1 pt-1.5 pb-2.5">
           {project.technologies.slice(0, isExpanded ? undefined : 5).map((tech) => (
             <span
               key={tech}
-              className={`text-xs font-mono px-2.5 py-1 rounded border font-medium ${accent.techPill}`}
+              className={`text-[11px] sm:text-xs font-mono px-2 py-0.5 rounded border font-medium ${accent.techPill}`}
             >
               {tech}
             </span>
           ))}
           {!isExpanded && project.technologies.length > 5 && (
-            <span className="text-xs font-mono px-2 py-1 text-[#555C66] dark:text-[#9EA3AC]">
+            <span className="text-[11px] sm:text-xs font-mono px-1.5 py-0.5 text-[#555C66] dark:text-[#9EA3AC]">
               +{project.technologies.length - 5}
             </span>
           )}
         </div>
       </div>
 
-      {/* Bottom Controls / Actions with 44px min touch targets */}
-      <div className={`pt-3 border-t ${accent.divider} flex items-center justify-between gap-3 text-xs sm:text-sm font-mono`}>
-        <div className="flex items-center gap-2 sm:gap-3">
+      {/* Bottom Controls / Actions */}
+      <div className={`pt-2.5 border-t ${accent.divider} flex items-center justify-between gap-2 text-xs font-mono`}>
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[44px] inline-flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors group/link font-medium cursor-pointer`}
+              className={`min-h-[38px] sm:min-h-[34px] inline-flex items-center gap-1 px-2 py-1.5 rounded-md text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors group/link font-medium cursor-pointer`}
               title="View GitHub Repository"
             >
-              <GithubIcon size={15} className="shrink-0" />
+              <GithubIcon size={14} className="shrink-0" />
               <span>GitHub</span>
               <span className="text-[10px] opacity-70 group-hover/link:translate-x-0.5 transition-transform">↗</span>
             </a>
@@ -217,21 +217,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <button
             type="button"
             onClick={onToggleExpand}
-            className={`min-h-[44px] inline-flex items-center px-2.5 py-2 rounded-lg text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors font-medium cursor-pointer`}
+            className={`min-h-[38px] sm:min-h-[34px] inline-flex items-center px-2 py-1.5 rounded-md text-[#555C66] dark:text-[#9EA3AC] ${accent.linkHover} transition-colors font-medium cursor-pointer`}
           >
             {isExpanded ? '− Less' : '+ Details'}
           </button>
         </div>
 
-        {/* Case Study Modal Trigger with 44px min touch height */}
+        {/* Case Study Modal Trigger */}
         <button
           type="button"
           onClick={() => onSelectCaseStudy(project)}
-          className={`min-h-[44px] group/btn inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm transition-all duration-200 shadow-xs cursor-pointer ${accent.btnPrimary}`}
+          className={`min-h-[38px] sm:min-h-[34px] group/btn inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs transition-all duration-200 shadow-xs cursor-pointer ${accent.btnPrimary}`}
         >
           <span>Case Study</span>
           <ArrowUpRight
-            size={13}
+            size={12}
             className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
           />
         </button>

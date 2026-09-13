@@ -13,7 +13,7 @@ const STATS_DATA = [
     index: '02',
     value: '01',
     label: 'PRIMARY PRACTICE',
-    detail: 'Full-Stack Engineering & Voice AI Interfaces',
+    detail: 'Full-Stack Software Engineering & AI Products',
     accent: 'text-[#C57D28] dark:text-[#E7A85B]',
   },
   {

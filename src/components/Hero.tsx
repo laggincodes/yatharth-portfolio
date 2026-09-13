@@ -13,7 +13,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex flex-col justify-between pt-4 sm:pt-6 md:pt-8 pb-8 px-4 sm:px-6 md:px-10 lg:px-16 bg-transparent overflow-hidden"
+      className="relative min-h-[100svh] w-full flex flex-col justify-between pt-3 sm:pt-4 lg:pt-3 xl:pt-5 pb-3 sm:pb-4 lg:pb-3 xl:pb-5 px-4 sm:px-6 md:px-10 lg:px-16 bg-transparent overflow-hidden"
     >
       {/* Floating Entry Navbar in Document Flow (scrolls away naturally) */}
       <Navbar onOpenCommandMenu={onOpenCommandMenu} />
@@ -23,28 +23,28 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 24 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        className="max-w-[1200px] w-full mx-auto my-auto relative z-10 py-8 sm:py-12"
+        className="max-w-[1200px] w-full mx-auto my-auto relative z-10 py-2 sm:py-3 lg:py-1 xl:py-3 2xl:py-6"
       >
         {/* Top Cover Index & Metadata Line */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 border-b border-[#D8D2C5] dark:border-[#262E38] pb-4 mb-8 sm:mb-12 text-xs font-mono tracking-[0.25em] text-[#59616A] dark:text-[#9AA0AA]">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2.5 sm:gap-3 border-b border-[#D8D2C5] dark:border-[#262E38] pb-2 sm:pb-2.5 lg:pb-2 xl:pb-3 mb-3 sm:mb-5 lg:mb-4 xl:mb-6 text-xs font-mono tracking-[0.25em] text-[#59616A] dark:text-[#9AA0AA]">
           <div className="flex items-center gap-3">
             <span className="font-semibold text-[#1D9AA2] dark:text-[#35C7D0]">01</span>
             <span className="text-[#D8D2C5] dark:border-[#262E38]">/</span>
             <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-wider">YATHARTH SAINI</span>
           </div>
           <div className="flex items-center gap-3 text-[11px] font-medium">
-            <span>CSE STUDENT · AI BUILDER</span>
+            <span>CSE STUDENT · DEVELOPER · AI BUILDER</span>
             <span className="hidden md:inline text-[#D8D2C5] dark:text-[#262E38]">/</span>
             <span className="hidden md:inline">DELHI, IN</span>
           </div>
         </div>
 
         {/* Large Asymmetric Magazine Headline */}
-        <div className="space-y-1 sm:space-y-2 select-none">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.25rem] font-semibold tracking-[-0.04em] text-[#171A1D] dark:text-[#F1EFE8] leading-[0.92] text-left">
+        <div className="space-y-0.5 sm:space-y-1 select-none">
+          <h1 className="hero-headline font-semibold tracking-[-0.04em] text-[#171A1D] dark:text-[#F1EFE8] leading-[0.92] text-left">
             Yatharth
           </h1>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.25rem] font-medium tracking-[-0.03em] leading-[0.92] text-left pl-4 sm:pl-12 md:pl-24 lg:pl-36">
+          <h1 className="hero-headline font-medium tracking-[-0.03em] leading-[0.92] text-left pl-4 sm:pl-10 md:pl-20 lg:pl-28 xl:pl-36">
             <span className="font-display italic text-[#171A1D] dark:text-[#F1EFE8]">
               Saini.
             </span>
@@ -52,29 +52,29 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
         </div>
 
         {/* Editorial Narrative & Technical Ledger Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 sm:pt-14 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 pt-4 sm:pt-6 lg:pt-4 xl:pt-8 items-end">
           {/* Left / Narrative (7 cols) */}
-          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-            <p className="text-[17px] sm:text-lg md:text-xl text-[#171A1D] dark:text-[#F1EFE8] font-medium leading-relaxed max-w-xl text-left">
-              "I build AI-powered products, voice interfaces and modern web systems."
+          <div className="lg:col-span-7 space-y-3 sm:space-y-4 lg:space-y-3 xl:space-y-4">
+            <p className="text-[15px] sm:text-lg lg:text-[17px] xl:text-lg 2xl:text-xl text-[#171A1D] dark:text-[#F1EFE8] font-medium leading-relaxed max-w-xl text-left">
+              "I build AI-powered products, full-stack applications and modern software systems."
             </p>
 
             {/* Tactile Editorial CTAs with minimum 44px touch targets */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 pt-1 lg:pt-1.5">
               <a
                 href="#work"
-                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 min-h-[44px] rounded-full bg-[#171A1D] dark:bg-[#F1EFE8] text-[#F1EEE7] dark:text-[#0D1014] font-semibold text-sm transition-all duration-300 hover:bg-black dark:hover:bg-white shadow-xs cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 min-h-[44px] rounded-full bg-[#171A1D] dark:bg-[#F1EFE8] text-[#F1EEE7] dark:text-[#0D1014] font-semibold text-xs sm:text-sm transition-all duration-300 hover:bg-black dark:hover:bg-white shadow-xs cursor-pointer"
               >
                 <span>Explore Selected Work</span>
                 <ArrowDown size={15} className="text-[#35C7D0] dark:text-[#1D9AA2] transition-transform duration-300 group-hover:translate-y-0.5" />
               </a>
 
-              <div className="flex items-center gap-3 w-full sm:w-auto">
+              <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <a
                   href="https://github.com/laggincodes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#1D9AA2]/50 dark:hover:border-[#35C7D0]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#1D9AA2]/50 dark:hover:border-[#35C7D0]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
                 >
                   <GithubIcon size={15} className="text-[#1D9AA2] dark:text-[#35C7D0]" />
                   <span>GitHub</span>
@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
                   href="https://www.linkedin.com/in/yatharth-saini-6bb584389"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#6C5CE7]/50 dark:hover:border-[#9A8CFF]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 min-h-[44px] rounded-full bg-[#F5F1E9] dark:bg-[#181D23] hover:bg-[#E9E5DC] dark:hover:bg-[#20262D] text-[#171A1D] dark:text-[#F1EFE8] border border-[#D8D2C5] dark:border-[#262E38] hover:border-[#6C5CE7]/50 dark:hover:border-[#9A8CFF]/50 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer"
                 >
                   <LinkedinIcon size={15} className="text-[#6C5CE7] dark:text-[#9A8CFF]" />
                   <span>LinkedIn</span>
@@ -96,16 +96,16 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
           </div>
 
           {/* Right / Metadata Ledger (5 cols) */}
-          <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-[#D8D2C5] dark:border-[#262E38] pt-6 lg:pt-0 lg:pl-8 space-y-3.5 text-xs font-mono text-[#59616A] dark:text-[#9AA0AA]">
-            <div className="flex justify-between items-baseline py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
+          <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-[#D8D2C5] dark:border-[#262E38] pt-4 sm:pt-6 lg:pt-0 lg:pl-8 space-y-2 lg:space-y-1.5 xl:space-y-2.5 text-xs font-mono text-[#59616A] dark:text-[#9AA0AA]">
+            <div className="flex justify-between items-baseline py-1 lg:py-1 xl:py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
               <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">FOCUS</span>
-              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">AI / VOICE / WEB</span>
+              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">SOFTWARE / AI / PRODUCTS</span>
             </div>
-            <div className="flex justify-between items-baseline py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
+            <div className="flex justify-between items-baseline py-1 lg:py-1 xl:py-1.5 border-b border-[#D8D2C5]/60 dark:border-[#262E38]/60">
               <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">PRACTICE</span>
-              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">PRODUCT TINKERER</span>
+              <span className="text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">FULL-STACK DEVELOPMENT</span>
             </div>
-            <div className="flex justify-between items-baseline py-1.5">
+            <div className="flex justify-between items-baseline py-1 lg:py-1 xl:py-1.5">
               <span className="uppercase tracking-widest text-[10px] font-semibold text-[#79828D] dark:text-[#737A85]">LOCATION</span>
               <span className="inline-flex items-center gap-1.5 text-[#171A1D] dark:text-[#F1EFE8] font-semibold tracking-normal">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2E885E] dark:bg-[#72C7A0] animate-pulse" />
@@ -117,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onOpenCommandMenu }) => {
       </motion.div>
 
       {/* Bottom Editorial Scroll Anchor */}
-      <div className="max-w-[1200px] w-full mx-auto pt-4 flex justify-between items-center text-xs font-mono tracking-widest text-[#59616A] dark:text-[#9AA0AA] relative z-10 border-t border-[#D8D2C5] dark:border-[#262E38]">
+      <div className="max-w-[1200px] w-full mx-auto pt-2 sm:pt-3 lg:pt-2 xl:pt-3 flex justify-between items-center text-xs font-mono tracking-widest text-[#59616A] dark:text-[#9AA0AA] relative z-10 border-t border-[#D8D2C5] dark:border-[#262E38]">
         <span>ISSUE 2026</span>
         <a
           href="#work"

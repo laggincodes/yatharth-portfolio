@@ -12,7 +12,7 @@ export const About: React.FC = () => {
           label="ABOUT"
           titleNormal="A little"
           titleItalic="about me."
-          description="Product-focused developer exploring the intersection of AI models, voice interfaces, healthcare AI, and privacy-focused systems."
+          description="CSE student and developer building AI-powered products, full-stack applications, and modern software systems."
           numberColor="text-[#2E885E] dark:text-[#72C7A0]"
         />
 
@@ -32,11 +32,11 @@ export const About: React.FC = () => {
 
             <div className="space-y-4 sm:space-y-5">
               <p>
-                I'm <span className="font-semibold text-[#171A1D] dark:text-[#EDEDED]">Yatharth Saini</span>, a Computer Science Engineering student based in Delhi. I specialize in building voice AI platforms, conversational agents, and high-performance web systems that prioritize clean user experience and low latency.
+                I'm <span className="font-semibold text-[#171A1D] dark:text-[#EDEDED]">Yatharth Saini</span>, a Computer Science Engineering student and developer based in Delhi. I focus on building practical software, full-stack web applications, and AI-powered products that solve real problems with clean architecture and responsive user experience.
               </p>
 
               <p>
-                My work spans building real-time voice AI co-teachers (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">EchoTutor</span>), real-time healthcare triage protocols (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">Agora Medicare AI</span>), and privacy leak risk analyzers (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">AI Privacy Risk Simulator</span>).
+                My work spans building real-time interactive AI assistants (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">EchoTutor</span>), clinical triage prototypes (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">Agora Medicare AI</span>), and computer-vision privacy risk analyzers (<span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">AI Privacy Risk Simulator</span>).
               </p>
 
               <p>
@@ -73,7 +73,7 @@ export const About: React.FC = () => {
               </div>
               <div className="py-3 flex justify-between items-baseline">
                 <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">FOCUS</span>
-                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">AI · VOICE · WEB SYSTEMS</span>
+                <span className="text-[#171A1D] dark:text-[#EDEDED] font-semibold">SOFTWARE · AI · WEB SYSTEMS</span>
               </div>
               <div className="py-3 flex justify-between items-baseline">
                 <span className="uppercase tracking-widest text-[10px] sm:text-[11px] font-semibold">PHILOSOPHY</span>
@@ -90,7 +90,7 @@ export const About: React.FC = () => {
 
             <div className="pt-2">
               <span className="text-xs sm:text-sm font-mono text-[#555C66] dark:text-[#9EA3AC] block leading-relaxed">
-                Available for software engineering internships, AI engineering roles, and high-impact product collaborations.
+                Available for software engineering internships, developer roles, and high-impact product collaborations.
               </span>
             </div>
           </motion.div>

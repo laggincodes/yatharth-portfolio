@@ -97,11 +97,24 @@
   }
 }
 
-/* Desktop fine pointer custom cursor hiding default pointer */
+/* Desktop fine pointer custom cursor: comprehensively hide native Windows/browser cursor */
 @media (pointer: fine) and (not (pointer: coarse)) and (min-width: 768px) {
-  body, a, button, [role="button"], article, input, textarea, select {
+  html,
+  body,
+  *,
+  *::before,
+  *::after {
     cursor: none !important;
   }
+}
+
+/* Explicit class-based selector synced with CustomCursor active state */
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor *,
+html.has-custom-cursor *::before,
+html.has-custom-cursor *::after {
+  cursor: none !important;
 }
 
 .font-display {
@@ -111,6 +124,11 @@
 
 .font-body {
   font-family: 'Inter', sans-serif;
+}
+
+/* Viewport-aware responsive hero headline that scales harmoniously with both width and height */
+.hero-headline {
+  font-size: clamp(2.75rem, min(8vw, 13vh), 9.25rem);
 }
 
 .accent-gradient {

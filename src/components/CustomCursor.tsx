@@ -15,9 +15,20 @@ export const CustomCursor: React.FC = () => {
 
     const isDesktopPointer = checkIsFineDesktop();
     setIsPointerFine(isDesktopPointer);
+    if (isDesktopPointer) {
+      document.documentElement.classList.add('has-custom-cursor');
+    } else {
+      document.documentElement.classList.remove('has-custom-cursor');
+    }
 
     const handleMediaChange = () => {
-      setIsPointerFine(checkIsFineDesktop());
+      const isFine = checkIsFineDesktop();
+      setIsPointerFine(isFine);
+      if (isFine) {
+        document.documentElement.classList.add('has-custom-cursor');
+      } else {
+        document.documentElement.classList.remove('has-custom-cursor');
+      }
     };
 
     const mediaQueryFine = window.matchMedia('(pointer: fine)');
@@ -29,6 +40,7 @@ export const CustomCursor: React.FC = () => {
 
     if (!isDesktopPointer) {
       return () => {
+        document.documentElement.classList.remove('has-custom-cursor');
         mediaQueryFine.removeEventListener('change', handleMediaChange);
         mediaQueryCoarse.removeEventListener('change', handleMediaChange);
         window.removeEventListener('resize', handleMediaChange);
@@ -104,7 +116,7 @@ export const CustomCursor: React.FC = () => {
       if (!target || !dotRef.current) return;
 
       const isInteractive =
-        target.closest('a, button, [role="button"], input, textarea, select, article, .group') !== null;
+        target.closest('a, button, [role="button"], input, textarea, select, article, .group, .cursor-pointer, [data-cursor="pointer"]') !== null;
 
       if (isInteractive && !isReducedMotion) {
         dotRef.current.style.transform = 'scale(1.25)';
@@ -121,6 +133,7 @@ export const CustomCursor: React.FC = () => {
     animationFrameId = requestAnimationFrame(updatePosition);
 
     return () => {
+      document.documentElement.classList.remove('has-custom-cursor');
       mediaQueryFine.removeEventListener('change', handleMediaChange);
       mediaQueryCoarse.removeEventListener('change', handleMediaChange);
       window.removeEventListener('resize', handleMediaChange);

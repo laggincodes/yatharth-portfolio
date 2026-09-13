@@ -30,6 +30,15 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
+    // Lock scroll during loading to prevent any accidental scroll behind the screen
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, []);
+
+  useEffect(() => {
     // Cycle action words
     const wordInterval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ACTION_WORDS.length);
@@ -45,6 +54,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           exit={{ y: '-100%' }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[100000] bg-[#0D1014] text-[#EDEDED] flex flex-col justify-between p-8 md:p-12 select-none"
+          style={{ position: 'fixed', inset: 0, zIndex: 100000, backgroundColor: '#0D1014' }}
         >
           {/* Top Header */}
           <div className="flex justify-between items-center text-xs font-mono text-[#9EA3AC]">
@@ -57,16 +67,18 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
           {/* Center Counter */}
           <div className="flex flex-col items-center justify-center space-y-4 my-auto">
-            <motion.h1
-              key={wordIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="font-display italic text-4xl md:text-6xl text-[#EDEDED]"
-            >
-              {ACTION_WORDS[wordIndex]}.
-            </motion.h1>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.h1
+                key={wordIndex}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="font-display italic text-4xl md:text-6xl text-[#EDEDED]"
+              >
+                {ACTION_WORDS[wordIndex]}.
+              </motion.h1>
+            </AnimatePresence>
 
             <div className="font-mono text-7xl md:text-9xl font-light tracking-tighter text-[#EDEDED]">
               {progress.toString().padStart(3, '0')}

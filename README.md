@@ -1,6 +1,6 @@
 # Yatharth Saini — Portfolio
 
-A personal developer portfolio showcasing my work in **AI, voice interfaces, privacy-focused systems, and modern web development**.
+A personal developer portfolio showcasing my work in **software engineering, AI-powered products, full-stack applications, and modern software systems**.
 
 The portfolio uses a dark editorial visual system with interactive project presentations, motion, and a lightweight custom cursor.
 

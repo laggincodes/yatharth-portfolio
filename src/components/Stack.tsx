@@ -16,16 +16,16 @@ const STACK_CATEGORIES = [
     skills: ['React', 'Next.js', 'Vite', 'Tailwind CSS'],
   },
   {
-    category: 'AI / VOICE',
+    category: 'AI & APIS',
     titleColor: 'text-[#6C5CE7] dark:text-[#9A8CFF]',
     hoverColor: 'hover:text-[#6C5CE7] dark:hover:text-[#9A8CFF]',
-    skills: ['Gemini', 'Agora Conversational AI', 'Deepgram', 'AI Agents'],
+    skills: ['Gemini AI', 'Agora RTC', 'Conversational AI', 'REST APIs'],
   },
   {
     category: 'BACKEND',
     titleColor: 'text-[#2E885E] dark:text-[#72C7A0]',
     hoverColor: 'hover:text-[#2E885E] dark:hover:text-[#72C7A0]',
-    skills: ['Python', 'Flask', 'Node.js', 'REST APIs'],
+    skills: ['Python', 'Flask', 'Node.js', 'SQL'],
   },
   {
     category: 'TOOLS',
@@ -45,7 +45,7 @@ export const Stack: React.FC = () => {
           label="STACK"
           titleNormal="Technical"
           titleItalic="tooling & stack."
-          description="Languages, client frameworks, voice protocols, and systems applied across active engineering builds."
+          description="Languages, client frameworks, AI integrations, backend services, and tools applied across active software builds."
           numberColor="text-[#3272CB] dark:text-[#6FA8FF]"
         />
 

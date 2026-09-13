@@ -5,11 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230B0D10' stroke='%235DA9FF' stroke-width='6'/><text x='50' y='60' font-family='sans-serif' font-weight='bold' font-size='38' fill='%23F1EFE8' text-anchor='middle'>YS</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
     <title>Yatharth Saini — AI Builder &amp; Developer</title>
-    <meta name="description" content="Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems." />
+    <meta name="description" content="Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems." />
     <meta name="author" content="Yatharth Saini" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0D1014" />
     <link rel="canonical" href="https://yatharth-portfolio.vercel.app/" />
+
+    <!-- Critical inline CSS to establish theme background and prevent any FOUC / flash of unstyled content -->
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html, body {
+        background-color: #0D1014;
+        color: #F1EFE8;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      html.light, html.light body {
+        background-color: #F1EEE7;
+        color: #171A1D;
+        color-scheme: light;
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background-color: #0D1014;
+        color: #EDEDED;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
+        box-sizing: border-box;
+        user-select: none;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      @media (min-width: 768px) {
+        #initial-loader {
+          padding: 3rem;
+        }
+      }
+      /* Ensure search crawler pre-rendered text is completely invisible to screen paint without hiding it from crawlers */
+      .seo-semantic-data {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+    </style>
 
     <!-- Early Theme Detection Script to prevent flash of unstyled theme -->
     <script>
@@ -20,6 +70,8 @@
           if (saved === 'light') {
             root.classList.remove('dark');
             root.classList.add('light');
+            var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+            if (metaThemeColor) metaThemeColor.setAttribute('content', '#F3F1EA');
           } else {
             // Always default to dark mode on fresh visits or when no saved preference
             root.classList.add('dark');
@@ -36,7 +88,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yatharth-portfolio.vercel.app/" />
     <meta property="og:title" content="Yatharth Saini — AI Builder &amp; Developer" />
-    <meta property="og:description" content="Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems." />
+    <meta property="og:description" content="Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems." />
     <meta property="og:image" content="https://yatharth-portfolio.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -47,7 +99,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yatharth-portfolio.vercel.app/" />
     <meta name="twitter:title" content="Yatharth Saini — AI Builder &amp; Developer" />
-    <meta name="twitter:description" content="Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems." />
+    <meta name="twitter:description" content="Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems." />
     <meta name="twitter:image" content="https://yatharth-portfolio.vercel.app/og-image.png" />
     <meta name="twitter:image:alt" content="Yatharth Saini — AI Builder &amp; Developer Portfolio" />
 
@@ -66,23 +118,21 @@
           "@id": "https://yatharth-portfolio.vercel.app/#person",
           "name": "Yatharth Saini",
           "url": "https://yatharth-portfolio.vercel.app/",
-          "jobTitle": "AI Builder & Developer",
-          "description": "Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems.",
+          "jobTitle": "CSE Student & Developer",
+          "description": "Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems.",
           "sameAs": [
             "https://github.com/laggincodes",
             "https://www.linkedin.com/in/yatharth-saini-6bb584389"
           ],
           "knowsAbout": [
+            "Software Engineering",
             "Artificial Intelligence",
-            "Voice AI",
-            "Healthcare AI",
-            "Privacy-focused Systems",
             "Full-Stack Web Development",
             "React",
             "TypeScript",
             "Python",
-            "Gemini",
-            "Agora Conversational AI"
+            "REST APIs",
+            "Modern Software Systems"
           ]
         },
         {
@@ -90,7 +140,7 @@
           "@id": "https://yatharth-portfolio.vercel.app/#website",
           "url": "https://yatharth-portfolio.vercel.app/",
           "name": "Yatharth Saini Portfolio",
-          "description": "Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems.",
+          "description": "Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems.",
           "author": {
             "@id": "https://yatharth-portfolio.vercel.app/#person"
           },
@@ -102,35 +152,70 @@
   </head>
   <body class="bg-bg text-text-primary antialiased selection:bg-surface-hover selection:text-white overflow-x-hidden">
     <div id="root">
-      <!-- Pre-rendered semantic structure for search engine crawlers before client hydration -->
-      <header>
-        <h1>Yatharth Saini — AI Builder &amp; Developer</h1>
-        <p>Yatharth Saini is a CSE student and AI developer building voice AI, healthcare, education, privacy, and modern web systems.</p>
-        <nav>
-          <a href="#work">Selected Work</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a href="https://github.com/laggincodes" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/yatharth-saini-6bb584389" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
-      </header>
-      <main>
-        <section id="featured-projects">
-          <h2>Featured Projects</h2>
-          <article>
-            <h3>EchoTutor</h3>
-            <p>An AI voice co-teacher for live digital classrooms, built around real-time conversational interaction.</p>
-          </article>
-          <article>
-            <h3>Agora Medicare AI</h3>
-            <p>A voice-first healthcare AI assistant built around real-time conversational interaction using Agora and Gemini.</p>
-          </article>
-          <article>
-            <h3>AI Privacy Risk Simulator</h3>
-            <p>A full-stack privacy analysis platform and vulnerability dashboard detecting privacy risks in uploaded images.</p>
-          </article>
-        </section>
-      </main>
+      <!-- Initial Loading State: Exact visual match to React LoadingScreen, painted on frame 0 before JS execution -->
+      <div id="initial-loader" aria-hidden="true">
+        <!-- Top Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #9EA3AC;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #35C7D0;"></span>
+            <span>YATHARTH SAINI</span>
+          </div>
+          <span>PORTFOLIO 2026</span>
+        </div>
+
+        <!-- Center Counter -->
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: auto; gap: 16px;">
+          <h1 style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(2.25rem, 5vw, 3.75rem); color: #EDEDED; margin: 0; font-weight: normal; line-height: 1.2;">
+            Build.
+          </h1>
+          <div style="font-size: clamp(4.5rem, 10vw, 8rem); font-weight: 300; letter-spacing: -0.05em; color: #EDEDED; line-height: 1;">
+            000
+          </div>
+        </div>
+
+        <!-- Bottom Progress Line -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: #9EA3AC;">
+            <span>LOADING SYSTEM</span>
+            <span style="color: #35C7D0; font-weight: 600;">0%</span>
+          </div>
+          <div style="width: 100%; height: 2px; background-color: #202833; border-radius: 9999px; overflow: hidden;">
+            <div style="height: 100%; width: 0%; background: linear-gradient(to right, #1D9AA2, #35C7D0);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-rendered semantic structure for search engine crawlers (accessible & indexed, zero visual flash) -->
+      <div class="seo-semantic-data">
+        <header>
+          <h1>Yatharth Saini — AI Builder &amp; Developer</h1>
+          <p>Yatharth Saini is a CSE student and developer building AI-powered products, full-stack applications and modern software systems.</p>
+          <nav>
+            <a href="#work">Selected Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="https://github.com/laggincodes" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/yatharth-saini-6bb584389" rel="noopener noreferrer">LinkedIn</a>
+          </nav>
+        </header>
+        <main>
+          <section id="featured-projects">
+            <h2>Featured Projects</h2>
+            <article>
+              <h3>EchoTutor</h3>
+              <p>An AI voice co-teacher for live digital classrooms, built around real-time conversational interaction.</p>
+            </article>
+            <article>
+              <h3>Agora Medicare AI</h3>
+              <p>A voice-first healthcare AI assistant built around real-time conversational interaction using Agora and Gemini.</p>
+            </article>
+            <article>
+              <h3>AI Privacy Risk Simulator</h3>
+              <p>A full-stack privacy analysis platform and vulnerability dashboard detecting privacy risks in uploaded images.</p>
+            </article>
+          </section>
+        </main>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

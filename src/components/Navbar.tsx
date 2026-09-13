@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandMenu }) => {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-      className="w-full max-w-5xl mx-auto flex justify-center items-center z-30 pointer-events-none px-2 sm:px-4 py-2 sm:py-3"
+      className="w-full max-w-5xl mx-auto flex justify-center items-center z-30 pointer-events-none px-2 sm:px-4 py-1.5 sm:py-2 lg:py-1.5 xl:py-2.5"
     >
       <nav
         className="pointer-events-auto flex items-center justify-between sm:justify-center gap-1 sm:gap-2 md:gap-3 px-2 sm:px-3.5 md:px-4 py-1.5 md:py-2 rounded-full border transition-all duration-300 bg-[#F5F1E9]/95 dark:bg-[#151A21]/95 border-[#D8D2C5] dark:border-[#262E38] shadow-xs max-w-full"

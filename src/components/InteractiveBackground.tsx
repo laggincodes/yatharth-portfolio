@@ -34,7 +34,7 @@ export const InteractiveBackground: React.FC<InteractiveBackgroundProps> = memo(
         onCanPlay={() => setIsVideoLoaded(true)}
         className={`w-full h-full object-cover transition-opacity duration-1000 ${
           isVideoLoaded
-            ? 'opacity-25 dark:opacity-40 scale-105'
+            ? 'opacity-50 [filter:invert(1)_contrast(1.15)_brightness(1.05)_hue-rotate(180deg)] mix-blend-multiply dark:filter-none dark:mix-blend-normal dark:opacity-40 scale-105'
             : 'opacity-0 scale-100'
         }`}
         style={{ willChange: 'opacity' }}
@@ -43,9 +43,13 @@ export const InteractiveBackground: React.FC<InteractiveBackgroundProps> = memo(
         {fallbackSrc && <source src={fallbackSrc} type="video/mp4" />}
       </video>
 
-      {/* Atmospheric Matte Vignette for Crisp Editorial Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F1EEE7]/90 via-[#F1EEE7]/55 to-[#F1EEE7]/95 dark:from-[#0D1014]/85 dark:via-[#0D1014]/50 dark:to-[#0D1014]/95 transition-colors duration-300" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#F1EEE7]/25 to-[#F1EEE7]/90 dark:via-[#0D1014]/25 dark:to-[#0D1014]/95 pointer-events-none" />
+      {/* Atmospheric Editorial Matte Vignettes for Crisp Typography & Visible Wave */}
+      {/* Horizontal: softly shields left typography while letting the right wave flow freely */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#F1EEE7]/85 via-[#F1EEE7]/35 to-transparent dark:from-transparent dark:via-transparent dark:to-transparent pointer-events-none transition-colors duration-300" />
+
+      {/* Vertical: subtle soft header/footer framing in light mode, atmospheric vignette in dark mode */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F1EEE7]/50 via-transparent to-[#F1EEE7]/60 dark:from-[#0D1014]/85 dark:via-[#0D1014]/50 dark:to-[#0D1014]/95 transition-colors duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-[#F1EEE7]/30 dark:via-[#0D1014]/25 dark:to-[#0D1014]/95 pointer-events-none transition-colors duration-300" />
 
       {/* Tactile Subtle Grid Texture */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10 dark:opacity-15 mix-blend-multiply dark:mix-blend-overlay" />
