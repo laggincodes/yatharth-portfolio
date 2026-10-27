@@ -12,14 +12,43 @@ export interface BuildEntry {
 
 export const BUILDS: BuildEntry[] = [
   {
+    id: 'build-voicebench',
+    date: 'OCT 2026',
+    title: 'VoiceBench — Voice Agent Evaluation Framework',
+    category: 'Evaluation & Voice Systems',
+    role: 'Framework Author',
+    description: 'Engineered an automated evaluation framework for real-time conversational voice agents, with deterministic assertion checking, timing provenance, and 195 passing tests.',
+    technologies: ['Python', 'ElevenLabs SDK', 'Pytest', 'PyYAML', 'Tailwind CSS'],
+    href: 'https://github.com/laggincodes/voicebench'
+  },
+  {
+    id: 'build-bayora-shield',
+    date: 'OCT 2026',
+    title: 'Bayora Shield — AI Red Teaming & Security Gateway',
+    category: 'AI Security & Systems',
+    role: 'Security Engineer',
+    description: 'Developed an offensive/defensive cybersecurity MVP for AI model evaluation protection, featuring an append-only SHA-256 hash-chained audit trail and RBAC gateway.',
+    technologies: ['Python', 'FastAPI', 'Argon2id', 'SQLite', 'React'],
+    href: 'https://github.com/laggincodes'
+  },
+  {
+    id: 'build-sthara-cadastral',
+    date: 'SEP 2026',
+    title: 'STHARA — 3D Cadastral Intelligence Platform',
+    category: 'Geospatial & 3D Web',
+    role: 'Geospatial Developer',
+    description: 'Architected a 3D volumetric land rights modeling system fusing 2D cadastral data, LiDAR elevation, and building footprints to compute prototype 3D-ULPIN identifiers.',
+    technologies: ['Python', 'FastAPI', 'Shapely', 'GeoPandas', 'Next.js', 'Three.js'],
+    href: 'https://github.com/laggincodes'
+  },
+  {
     id: 'build-echotutor',
     date: 'SEP 2026',
     title: 'EchoTutor — AI Voice Co-Teacher',
-    category: 'AI · VOICE · EDUCATION',
+    category: 'Voice AI & Education',
     role: 'Creator & Developer',
-    description: 'Built an AI voice co-teacher concept for live digital classrooms using real-time conversational AI.',
-    technologies: ['React', 'TypeScript', 'Next.js', 'Agora', 'Gemini'],
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    description: 'Built a synchronous AI voice co-teacher prototype for live classrooms using Agora SD-RTN audio streaming, server-side token generation, and teacher authority controls.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Agora RTC', 'Supabase'],
     href: 'https://github.com/laggincodes/EchoTutor.git'
   },
   {
@@ -28,9 +57,8 @@ export const BUILDS: BuildEntry[] = [
     title: 'Agora Medicare AI — Voice Healthcare Assistant',
     category: 'Voice AI & Healthcare',
     role: 'Creator & Developer',
-    description: 'Engineered a low-latency voice interaction loop for healthcare assistance, utilizing Agora streaming audio WebSockets and Gemini multimodal intelligence.',
-    technologies: ['React', 'Agora SDK', 'Gemini AI', 'Voice AI'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    description: 'Engineered a real-time conversational audio prototype for patient clinic navigation with strict non-diagnostic prompt guardrails and emergency escalation.',
+    technologies: ['FastAPI', 'Python', 'Agora RTC', 'Pinecone', 'React'],
     href: 'https://github.com/laggincodes/caresphere'
   },
   {
@@ -39,9 +67,8 @@ export const BUILDS: BuildEntry[] = [
     title: 'AI Privacy Risk Simulator — Full-Stack Architecture',
     category: 'Computer Vision & Privacy UI',
     role: 'Full-Stack Developer',
-    description: 'Designed and developed the full-stack privacy visualizer displaying detected sensitive image regions, risk scores, and Flask API integration.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Python', 'Flask', 'AI'],
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+    description: 'Designed and developed a full-stack image privacy scanner displaying detected sensitive biometric regions, OCR text, and risk scores on dynamic Canvas overlays.',
+    technologies: ['React', 'TypeScript', 'Flask', 'Python', 'EasyOCR', 'MediaPipe'],
     href: 'https://github.com/laggincodes/ai-privacy-risk-simulator'
   }
 ];

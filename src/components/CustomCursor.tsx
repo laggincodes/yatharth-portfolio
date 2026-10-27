@@ -110,7 +110,7 @@ export const CustomCursor: React.FC = () => {
       }
     };
 
-    // Toggle scale ONLY on inner dot element so position translate3d is NEVER transition-animated
+    // Toggle scale & subtle rose accent ONLY on inner dot element
     const handlePointerOver = (e: PointerEvent) => {
       const target = e.target as HTMLElement;
       if (!target || !dotRef.current) return;
@@ -119,9 +119,13 @@ export const CustomCursor: React.FC = () => {
         target.closest('a, button, [role="button"], input, textarea, select, article, .group, .cursor-pointer, [data-cursor="pointer"]') !== null;
 
       if (isInteractive && !isReducedMotion) {
-        dotRef.current.style.transform = 'scale(1.25)';
+        dotRef.current.style.transform = 'scale(1.35)';
+        dotRef.current.style.backgroundColor = '#E8A0BA';
+        dotRef.current.style.borderColor = '#D98AA9';
       } else {
         dotRef.current.style.transform = 'scale(1)';
+        dotRef.current.style.backgroundColor = '';
+        dotRef.current.style.borderColor = '';
       }
     };
 
@@ -157,10 +161,10 @@ export const CustomCursor: React.FC = () => {
         transform: 'translate3d(-1000px, -1000px, 0)',
       }}
     >
-      {/* 14px small solid circle (dark in light mode, solid white in dark mode) */}
+      {/* 13px small solid dot with subtle rose highlight on interactive elements */}
       <div
         ref={dotRef}
-        className="w-3.5 h-3.5 rounded-full bg-[#171A1D] dark:bg-white border border-black/15 dark:border-white/20 shadow-xs dark:shadow-none transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="w-3.5 h-3.5 rounded-full bg-[#30212A] dark:bg-[#F7EAF0] border border-[#D98BA8]/50 dark:border-[#E8A0BA]/50 shadow-xs transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2"
         style={{
           willChange: 'transform',
           transform: 'scale(1)',

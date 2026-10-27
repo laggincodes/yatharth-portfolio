@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, FolderKanban, User, Mail, FileText, X } from 'lucide-react';
+import { Search, FolderKanban, User, Mail, FileText, BarChart3, X } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 interface CommandMenuProps {
@@ -28,6 +28,15 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
   }, [isOpen, onClose]);
 
   const COMMANDS = [
+    {
+      id: 'activity',
+      label: 'View Developer Activity (GitHub & LeetCode)',
+      icon: BarChart3,
+      action: () => {
+        document.getElementById('activity')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      },
+    },
     {
       id: 'work',
       label: 'Go to Featured Work',
@@ -57,10 +66,19 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
     },
     {
       id: 'resume',
-      label: 'View Resume (PDF)',
+      label: 'Request Resume (PDF via Email)',
       icon: FileText,
       action: () => {
-        window.open('/resume.pdf', '_blank');
+        window.location.href = 'mailto:yathusaini10@gmail.com?subject=Resume%20Request%20-%20Yatharth%20Saini';
+        onClose();
+      },
+    },
+    {
+      id: 'voicebench',
+      label: 'Open VoiceBench GitHub Repository',
+      icon: GithubIcon,
+      action: () => {
+        window.open('https://github.com/laggincodes/voicebench', '_blank');
         onClose();
       },
     },
@@ -107,7 +125,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-md transition-colors duration-200"
+            className="fixed inset-0 bg-[#211820]/50 dark:bg-[#211820]/75 backdrop-blur-md transition-colors duration-200"
           />
 
           {/* Modal Card */}
@@ -116,22 +134,22 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-lg bg-[#F8F5EE] dark:bg-[#151A21] border border-[#D8D2C5] dark:border-[#262E38] rounded-2xl shadow-2xl overflow-hidden z-10 text-[#171A1D] dark:text-[#EDEDED] transition-colors duration-200"
+            className="relative w-full max-w-lg bg-[#F8E6ED] dark:bg-[#30212C] border border-[#E3B9CA] dark:border-[#543746] rounded-2xl shadow-2xl overflow-hidden z-10 text-[#30212A] dark:text-[#F7EAF0] transition-colors duration-200"
           >
             {/* Input Bar */}
-            <div className="flex items-center px-4 py-3.5 border-b border-[#D8D2C5] dark:border-[#262E38]">
-              <Search className="w-4 h-4 text-[#555C66] dark:text-[#9EA3AC] mr-3" />
+            <div className="flex items-center px-4 py-3.5 border-b border-[#E3B9CA] dark:border-[#543746]">
+              <Search className="w-4 h-4 text-[#725965] dark:text-[#C6AFBB] mr-3" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search..."
-                className="w-full bg-transparent text-sm text-[#171A1D] dark:text-[#EDEDED] placeholder-[#555C66] dark:placeholder-[#767D88] focus:outline-none"
+                className="w-full bg-transparent text-sm text-[#30212A] dark:text-[#F7EAF0] placeholder-[#725965] dark:placeholder-[#C6AFBB]/70 focus:outline-none"
                 autoFocus
               />
               <button
                 onClick={onClose}
-                className="p-1 text-[#555C66] dark:text-[#9EA3AC] hover:text-[#171A1D] dark:hover:text-[#EDEDED] rounded-lg transition-colors cursor-pointer"
+                className="p-1 text-[#725965] dark:text-[#C6AFBB] hover:text-[#30212A] dark:hover:text-[#F7EAF0] rounded-lg transition-colors cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -146,29 +164,29 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({ isOpen, onClose }) => 
                     <button
                       key={cmd.id}
                       onClick={cmd.action}
-                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-[#555C66] dark:text-[#9EA3AC] hover:text-[#171A1D] dark:hover:text-[#EDEDED] hover:bg-[#EAE5DB] dark:hover:bg-[#1C222B] transition-colors group cursor-pointer"
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-[#725965] dark:text-[#C6AFBB] hover:text-[#30212A] dark:hover:text-[#F7EAF0] hover:bg-[#EFD0DC] dark:hover:bg-[#382632] transition-colors group cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
-                        <Icon size={16} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#3272CB] dark:group-hover:text-[#6FA8FF] transition-colors" />
+                        <Icon size={16} className="text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-colors" />
                         <span>{cmd.label}</span>
                       </div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#171A1D] dark:group-hover:text-[#EDEDED]">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA]">
                         Select ↵
                       </span>
                     </button>
                   );
                 })
               ) : (
-                <div className="px-4 py-8 text-center text-xs text-[#555C66] dark:text-[#9EA3AC]">
+                <div className="px-4 py-8 text-center text-xs text-[#725965] dark:text-[#C6AFBB]">
                   No matching commands found.
                 </div>
               )}
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-[#D8D2C5] dark:border-[#262E38] bg-[#EFEAE1] dark:bg-[#12161D] text-[10px] text-[#555C66] dark:text-[#9EA3AC]">
+            <div className="flex items-center justify-between px-4 py-2 border-t border-[#E3B9CA] dark:border-[#543746] bg-[#EFD0DC] dark:bg-[#291D26] text-[10px] text-[#725965] dark:text-[#C6AFBB]">
               <span>Use keyboard to navigate</span>
-              <span className="font-mono bg-[#E8E3D8] dark:bg-[#181F28] border border-[#D8D2C5] dark:border-[#262E38] px-1.5 py-0.5 rounded text-[#171A1D] dark:text-[#EDEDED]">ESC to close</span>
+              <span className="font-mono bg-[#FBEAF0] dark:bg-[#382632] border border-[#E3B9CA] dark:border-[#543746] px-1.5 py-0.5 rounded text-[#30212A] dark:text-[#F7EAF0]">ESC to close</span>
             </div>
           </motion.div>
         </div>

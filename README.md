@@ -1,154 +1,127 @@
-# Yatharth Saini — Portfolio
+# Yatharth Saini — Developer Portfolio
 
-A personal developer portfolio showcasing my work in **software engineering, AI-powered products, full-stack applications, and modern software systems**.
+A personal developer portfolio showcasing engineering work in **software engineering, full-stack web applications, AI systems, and automated evaluation frameworks**.
 
-The portfolio uses a dark editorial visual system with interactive project presentations, motion, and a lightweight custom cursor.
+The portfolio is built with a cohesive editorial aesthetic combining **warm blush pink (light mode) and dimly lit rose-plum (dark mode)**, featuring an interactive dusk/sunset animated video background, a live developer activity dashboard, responsive typography, and subtle discoverable feline details designed exclusively for desktop pointers.
 
-## Featured Projects
+---
 
-### EchoTutor
-**AI · Voice · Education**
+## Key Highlights
 
-An AI voice co-teacher for live digital classrooms, built around real-time conversational interaction.
+- **Dual Editorial Theme System:**
+  - **Light Mode:** Warm blush pink surfaces (`#F3DCE5` / `#F8E6ED` / `#D98BA8`) providing a soft, velvety feel with crisp plum typography.
+  - **Dark Mode:** Warm plum and muted rose surfaces (`#211820` / `#30212C` / `#E8A0BA`) replacing harsh near-black with an intimate, dimly lit atmosphere.
+- **Local Hero Background Video:**
+  - Uses the local video file at `public/hero-background.mp4` (`/hero-background.mp4`) depicting an animated dusk/sunset scene with a cat sitting on a fence under glowing clouds, sun, and flying birds.
+  - Video is rendered with high contrast and natural opacity (`opacity-85` light / `opacity-65` dark) with localized frosted glass cards (`backdrop-blur-md`) for pristine readability.
+- **Slide 2 — Developer Activity Dashboard:**
+  - Real-time GitHub and LeetCode activity dashboard positioned immediately after the Hero.
+  - Interactive pink-scaled GitHub contribution graph (Past 365 days) and verified metrics (commits, repositories, accepted submissions).
+- **Desktop-Only Cat Interactions:**
+  - **Upper-Left Ginger Cat:** Cursor-following companion activated on demand via top-left trigger.
+  - **Bottom-Right Cat Paw Launcher:** Floating button opening a compact social-links panel.
+  - **Discoverable Easter Eggs:** Secret paw visitor dossier in footer, curious cat 5-click toast on logo, and Konami constellation animation (`↑ ↑ ↓ ↓ ← → ← → B A`).
+  - **Mobile Suppression:** All cat triggers, floating buttons, cursor followers, and animation loops are completely hidden on mobile phones and touchscreens using CSS media queries (`(hover: hover) and (pointer: fine) and (min-width: 1024px)`) and runtime capability hooks. Standard navigation and contact channels remain 100% accessible.
+- **Credibility-Audited Engineering Work:**
+  - Honest representations with zero exaggerated claims, supported by test suites and public GitHub repositories. Detailed audit findings in [`docs/PORTFOLIO_CREDIBILITY_AUDIT.md`](docs/PORTFOLIO_CREDIBILITY_AUDIT.md).
 
-**Repository:** [https://github.com/laggincodes/EchoTutor.git](https://github.com/laggincodes/EchoTutor.git)
+---
 
-**Tech:** React, TypeScript, Next.js, Agora, Conversational AI, Gemini, Voice AI
+## Featured Projects (5-Part Engineering Breakdown)
 
-### Agora Medicare AI
-**AI · Voice · Healthcare**
+### 1. VoiceBench
+- **Category:** AI · Evaluation · Voice Systems
+- **Status:** `Verified locally`
+- **Role:** Framework Author
+- **Problem:** Real-time conversational voice agents frequently suffer from interruption failures (barge-in latency regressions), persona drift, and context loss during multi-turn turn-taking that standard unit tests cannot detect.
+- **Implementation:** Engineered deterministic YAML scenario execution engine and assertion checker; built ElevenLabs completed-conversation adapter with timing provenance and credential redaction; developed differential regression lab isolating barge-in yield latencies (+1,130ms on SCEN-INT-02); created standalone local dashboard on `127.0.0.1:8765` with zero external runtime dependencies.
+- **Evidence:** `python -m pytest tests/` (195 passed in 21.7s across 18 modules); public repository at [github.com/laggincodes/voicebench](https://github.com/laggincodes/voicebench).
+- **Stack:** Python, ElevenLabs SDK, Pytest, PyYAML, Tailwind CSS.
 
-A voice-first healthcare AI assistant built around real-time conversational interaction using Agora and Gemini.
+### 2. EchoTutor
+- **Category:** AI · Voice · Education
+- **Status:** `Prototype`
+- **Role:** Creator & Developer
+- **Problem:** Synchronous online classrooms struggle with real-time participation and early detection of student learning gaps without burdening the human lead teacher.
+- **Implementation:** Implemented server-side Agora RTC token generation keeping app certificates secure; constructed dual-tier UID role partitioning (teachers 1000–1999 vs students 2000–8999); integrated Next.js 16 with Agora audio streaming and Supabase profile auth; structured teacher-in-the-loop control authority and pedagogical context state machines.
+- **Evidence:** Next.js 16 App Router codebase with server-side token generation and Supabase RLS migrations; public repository at [github.com/laggincodes/EchoTutor](https://github.com/laggincodes/EchoTutor).
+- **Stack:** Next.js, React, TypeScript, Agora RTC, Supabase, Deepgram STT.
 
-**Tech:** React, Agora, Gemini, Voice AI
+### 3. Agora Medicare AI (CareSphere)
+- **Category:** AI · Voice · Healthcare
+- **Status:** `Prototype`
+- **Role:** Creator & Developer
+- **Problem:** Clinical phone triage suffers from long hold times, but conversational AI systems must strictly enforce non-diagnostic safety guardrails and immediately escalate acute life-threatening emergencies.
+- **Implementation:** Built FastAPI Agora token service and WebSocket audio gateway (`/ws/voice`); integrated keyword and semantic emergency bypass protocol for acute conditions; implemented strict prompt guardrails enforcing non-diagnostic informational guidance (max 40 words); connected Pinecone vector knowledge base schema for clinic FAQ retrieval.
+- **Evidence:** FastAPI backend with emergency triage interceptor and Agora RTC token server; public repository at [github.com/laggincodes/caresphere](https://github.com/laggincodes/caresphere).
+- **Stack:** FastAPI, Python, Agora RTC, Pinecone, WebSocket, React.
 
-### AI Privacy Risk Simulator
-**AI · Privacy · Computer Vision**
+### 4. AI Privacy Risk Simulator
+- **Category:** AI · Privacy · Computer Vision
+- **Status:** `Working demo`
+- **Role:** Full-Stack Developer
+- **Problem:** Users frequently upload photos and document scans to public platforms unaware of sensitive biometric markers, exposed PII text, or hidden geolocation metadata embedded within them.
+- **Implementation:** Engineered React & TypeScript interface with dynamic Canvas coordinate overlays; built asynchronous Flask REST backend with non-blocking thread execution and progress polling; integrated multi-stage scanning pipeline: Pillow (EXIF), EasyOCR + regex (PII text), MediaPipe (faces), OpenCV (QR); implemented structured AI summary generation with graceful fallback for resilient scans.
+- **Evidence:** Verified runnable full-stack MVP with SQLite report caching and Canvas visual risk highlights; public repository at [github.com/laggincodes/ai-privacy-risk-simulator](https://github.com/laggincodes/ai-privacy-risk-simulator).
+- **Stack:** React, TypeScript, Flask, Python, EasyOCR, MediaPipe, OpenCV.
 
-A full-stack privacy analysis platform that processes uploaded images through an AI-powered scanning pipeline and presents detected privacy risks through a modern interface.
+---
 
-**Role:** Full-Stack Developer
+## Technical Stack & Competencies
 
-**Contribution**
-- Designed and developed the React/TypeScript frontend
-- Built and integrated backend APIs
-- Implemented the image scanning workflow
-- Connected frontend and backend processing
-- Integrated the privacy-analysis pipeline
-- Built the interface for displaying detected privacy risks and analysis results
+- **Languages:** Python, TypeScript, JavaScript, C, C++, SQL
+- **Frontend:** React 19, Next.js 16, Vite, Tailwind CSS, Framer Motion, GSAP, HTML5 Canvas
+- **Backend:** FastAPI, Flask, Node.js, REST APIs, WebSockets
+- **Databases & Storage:** SQLite, PostgreSQL (Supabase), Pinecone (Vector)
+- **AI & Streaming APIs:** Agora RTC / RTM, ElevenLabs SDK, Gemini API, Deepgram STT, MediaPipe, EasyOCR
+- **Tools & DevOps:** Git, GitHub, Docker, Pytest, Linux, Postman
 
-**Tech:** React, TypeScript, Tailwind CSS, Python, Flask, AI / Computer Vision, REST APIs
-
-> The project presentation distinguishes between systems I implemented, AI/vision modules I integrated, and other components developed collaboratively.
-
-## Features
-
-- Cinematic interactive hero
-- Responsive bento-style project showcase
-- Interactive project case studies
-- Build Log
-- Cmd/Ctrl + K command menu
-- Custom desktop cursor
-- GSAP marquee in the contact section
-- Responsive desktop/tablet/mobile layouts
-- Reduced-motion support
-- Keyboard-accessible interactions
-
-## Design
-
-The visual direction is intentionally minimal and editorial.
-
-**Typography**
-- Inter — interface and body text
-- Instrument Serif — display and editorial emphasis
-
-**Visual language**
-- Dark background
-- Subtle surfaces and borders
-- Large typography
-- Editorial spacing
-- Restrained blue accents
-- Rounded project cards
-- Smooth motion
-- Minimal visual clutter
-
-## Tech Stack
-
-**Frontend**
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS
-
-**Animation**
-- Framer Motion
-- GSAP
-- GSAP ScrollTrigger
-
-**Icons**
-- Lucide React
-
-## Project Structure
-
-```text
-src/
-├── components/
-├── data/
-├── pages/
-├── App.tsx
-└── main.tsx
-
-public/
-└── hero-background.mp4
-```
+---
 
 ## Getting Started
 
-### Requirements
-
-- Node.js
+### Prerequisites
+- Node.js 18+ (tested on Node.js 22 & 24)
 - npm
 
-### Install
-
+### Installation
 ```bash
 npm install
 ```
 
-### Development
-
+### Development Server
 ```bash
 npm run dev
 ```
+Runs the local Vite server at `http://localhost:5173/`.
 
-### TypeScript Check
-
+### Typecheck & Lint
 ```bash
 npx tsc -b
+npx oxlint
 ```
 
 ### Production Build
-
 ```bash
 npm run build
 ```
+Generates production assets into `dist/`.
 
-## Deployment
+---
 
-The portfolio can be deployed on platforms such as Vercel or other Vite-compatible hosting providers.
+## Credibility & Verification Audit
 
-## Contact
+A comprehensive credibility audit was executed across all claims, test suites, and project repositories. Full findings, evidence logs, and standard status classifications are detailed in:
+[`docs/PORTFOLIO_CREDIBILITY_AUDIT.md`](docs/PORTFOLIO_CREDIBILITY_AUDIT.md)
+
+---
+
+## Contact & Links
 
 **Yatharth Saini**
-
+- Location: Delhi, India
+- Email: [yathusaini10@gmail.com](mailto:yathusaini10@gmail.com)
 - GitHub: [@laggincodes](https://github.com/laggincodes)
 - LinkedIn: [Yatharth Saini](https://www.linkedin.com/in/yatharth-saini-6bb584389)
-- Email: [yathusaini10@gmail.com](mailto:yathusaini10@gmail.com)
-
-## Philosophy
-
-I learn primarily by building. This portfolio focuses on real projects, actual contributions, and the things I am learning by turning ideas into working software.
-
-## License
-
-Personal portfolio code and content. Unless otherwise stated, branding, project visuals, screenshots, and personal materials are not intended for redistribution or reuse.
+- LeetCode: [@laggincodes](https://leetcode.com/u/laggincodes/)
+- Live Website: [yatharth-portfolio.vercel.app](https://yatharth-portfolio.vercel.app/)

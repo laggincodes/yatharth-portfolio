@@ -53,13 +53,13 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <motion.div
           exit={{ y: '-100%' }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100000] bg-[#0D1014] text-[#EDEDED] flex flex-col justify-between p-8 md:p-12 select-none"
-          style={{ position: 'fixed', inset: 0, zIndex: 100000, backgroundColor: '#0D1014' }}
+          className="fixed inset-0 z-[100000] bg-[#F3DCE5] text-[#30212A] flex flex-col justify-between p-8 md:p-12 select-none"
+          style={{ position: 'fixed', inset: 0, zIndex: 100000, backgroundColor: '#F3DCE5' }}
         >
           {/* Top Header */}
-          <div className="flex justify-between items-center text-xs font-mono text-[#9EA3AC]">
+          <div className="flex justify-between items-center text-xs font-mono text-[#725965]">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#35C7D0] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#D98BA8] animate-pulse" />
               <span>YATHARTH SAINI</span>
             </div>
             <span>PORTFOLIO 2026</span>
@@ -74,26 +74,26 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="font-display italic text-4xl md:text-6xl text-[#EDEDED]"
+                className="font-display italic text-4xl md:text-6xl text-[#30212A]"
               >
                 {ACTION_WORDS[wordIndex]}.
               </motion.h1>
             </AnimatePresence>
 
-            <div className="font-mono text-7xl md:text-9xl font-light tracking-tighter text-[#EDEDED]">
+            <div className="font-mono text-7xl md:text-9xl font-light tracking-tighter text-[#30212A]">
               {progress.toString().padStart(3, '0')}
             </div>
           </div>
 
           {/* Bottom Progress Line */}
           <div className="space-y-2">
-            <div className="flex justify-between text-[11px] font-mono text-[#9EA3AC]">
+            <div className="flex justify-between text-[11px] font-mono text-[#725965]">
               <span>LOADING SYSTEM</span>
-              <span className="text-[#35C7D0] font-semibold">{progress}%</span>
+              <span className="text-[#9E526F] font-semibold">{progress}%</span>
             </div>
-            <div className="w-full h-[2px] bg-[#202833] overflow-hidden rounded-full">
+            <div className="w-full h-[2px] bg-[#E3B9CA] overflow-hidden rounded-full">
               <div
-                className="h-full bg-gradient-to-r from-[#1D9AA2] to-[#35C7D0] transition-all duration-100 ease-out"
+                className="h-full bg-gradient-to-r from-[#C87998] to-[#D98BA8] transition-all duration-100 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>

@@ -12,6 +12,8 @@
   --color-text-secondary: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-stroke: var(--border);
+  --color-accent-rose: var(--accent-rose);
+  --color-accent-blush: var(--accent-blush);
   --color-accent-cyan: var(--accent-cyan);
   --color-accent-amber: var(--accent-amber);
   --color-accent-violet: var(--accent-violet);
@@ -21,55 +23,66 @@
 }
 
 :root {
-  /* Warm Paper Editorial Light Mode (Not harsh pure white) */
-  --bg: 43 20% 93%;
-  --background: #F1EEE7;
-  --foreground: #171A1D;
-  --surface: #F5F1E9;
-  --surface-secondary: #E9E5DC;
-  --surface-hover: #E2DDD3;
-  --surface-subtle: #DDD8CE;
-  --border: #D8D2C5;
-  --border-subtle: rgba(23, 26, 29, 0.08);
-  --muted: #E9E5DC;
-  --muted-foreground: #59616A;
-  --muted-subtle: #79828D;
-  --text: 210 12% 11%;
-  --stroke: #D8D2C5;
+  /* Warm, Intimate Blush Pink Editorial Palette (Design Tokens) */
+  --bg: 335 44% 91%;
+  --background: #F3DCE5; /* Main page background: warm blush pink */
+  --foreground: #30212A; /* Main text: warm plum-charcoal */
+  --surface: #F8E6ED; /* Card background: velvety pale blush */
+  --surface-secondary: #EFD0DC; /* Alternate section background: deeper soft rose pink */
+  --surface-elevated: #FBEAF0; /* Elevated surfaces: warm pink */
+  --surface-hover: #F2D2DE;
+  --surface-subtle: #ECC5D3;
+  --border: #E3B9CA; /* Borders and dividers: soft rose */
+  --border-subtle: rgba(217, 139, 168, 0.3);
+  --muted: #EFD0DC;
+  --muted-foreground: #725965; /* Secondary text: muted mauve */
+  --muted-subtle: #8C707E;
+  --text: 326 18% 16%;
+  --stroke: #E3B9CA;
 
-  /* Editorial Accent Palette (Light Mode - rich & readable) */
-  --accent-cyan: #1D9AA2;
-  --accent-amber: #C57D28;
-  --accent-violet: #6C5CE7;
-  --accent-coral: #C85B49;
-  --accent-green: #2E885E;
-  --accent-blue: #3272CB;
+  /* Refined Warm Rose / Blush Accents */
+  --accent-rose: #D98BA8; /* Primary pink: muted rose */
+  --accent-blush: #C87998; /* Secondary pink: dusty pink */
+  --accent-deep: #9E526F; /* Deep rose: emphasis & interactive elements */
+  --accent-cyan: #2B8D97;
+  --accent-amber: #B8732A;
+  --accent-violet: #8D5C96;
+  --accent-coral: #C75877;
+  --accent-green: #2B855D;
+  --accent-blue: #3E6FA8;
+
+  --shadow-plum: 0 4px 20px -2px rgba(48, 33, 42, 0.08), 0 2px 6px -1px rgba(48, 33, 42, 0.04);
 }
 
 .dark {
-  /* Matte Charcoal & Tinted Editorial Dark Mode (Not flat pitch-black) */
-  --bg: 214 20% 6%;
-  --background: #0D1014;
-  --foreground: #F1EFE8;
-  --surface: #151A20;
-  --surface-secondary: #11151A;
-  --surface-hover: #1C2229;
-  --surface-subtle: #181D23;
-  --border: #262E38;
-  --border-subtle: rgba(241, 239, 232, 0.08);
-  --muted: #151A20;
-  --muted-foreground: #9AA0AA;
-  --muted-subtle: #737A85;
-  --text: 45 18% 93%;
-  --stroke: #262E38;
+  /* Warm Plum Editorial × Luminous Rose (Dimly lit rose-colored room) */
+  --bg: 305 15% 11%;
+  --background: #211820;
+  --foreground: #F7EAF0;
+  --surface: #30212C;
+  --surface-secondary: #291D26;
+  --surface-hover: #382632;
+  --surface-subtle: #382632;
+  --border: #543746;
+  --border-subtle: rgba(232, 160, 186, 0.22);
+  --muted: #291D26;
+  --muted-foreground: #C6AFBB;
+  --muted-subtle: #A38C98;
+  --text: 320 12% 95%;
+  --stroke: #543746;
 
-  /* Editorial Accent Palette (Dark Mode - luminous yet refined) */
-  --accent-cyan: #35C7D0;
-  --accent-amber: #E7A85B;
-  --accent-violet: #9A8CFF;
-  --accent-coral: #E98272;
-  --accent-green: #72C7A0;
-  --accent-blue: #6FA8FF;
+  /* Refined Rose / Blush Accents (Dark Mode - luminous warm pinks) */
+  --accent-rose: #E8A0BA;
+  --accent-blush: #D98AA9;
+  --accent-deep: #BD718F;
+  --accent-cyan: #45CBD7;
+  --accent-amber: #E8A85C;
+  --accent-violet: #C99CE0;
+  --accent-coral: #F293A6;
+  --accent-green: #78CCA6;
+  --accent-blue: #86B2EB;
+
+  --shadow-plum: 0 4px 20px -2px rgba(33, 24, 32, 0.4), 0 2px 6px -1px rgba(33, 24, 32, 0.2);
 }
 
 @layer base {
@@ -90,9 +103,9 @@
     transition: background-color 250ms ease, color 250ms ease;
   }
   
-  /* Focus-visible accessibility outline */
+  /* Focus-visible accessibility outline in muted rose pink */
   :focus-visible {
-    outline: 2px solid var(--accent-blue);
+    outline: 2px solid var(--accent-rose);
     outline-offset: 2px;
   }
 }
@@ -126,35 +139,35 @@ html.has-custom-cursor *::after {
   font-family: 'Inter', sans-serif;
 }
 
-/* Viewport-aware responsive hero headline that scales harmoniously with both width and height */
+/* Viewport-aware responsive hero headline */
 .hero-headline {
   font-size: clamp(2.75rem, min(8vw, 13vh), 9.25rem);
 }
 
 .accent-gradient {
-  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  background: linear-gradient(90deg, #D98BA8 0%, #C87998 100%);
 }
 
 .accent-text-gradient {
-  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  background: linear-gradient(90deg, #D98BA8 0%, #C87998 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .accent-border-gradient {
-  border-image: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%) 1;
+  border-image: linear-gradient(90deg, #D98BA8 0%, #C87998 100%) 1;
 }
 
 .accent-glow {
-  box-shadow: 0 0 25px -5px rgba(137, 170, 204, 0.2);
+  box-shadow: 0 0 25px -5px rgba(217, 139, 168, 0.25);
 }
 
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(200, 121, 152, 0.09) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with subtle rose accent */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -166,7 +179,7 @@ html.has-custom-cursor *::after {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
+  background: var(--accent-blush);
 }
 
 /* Accessibility: Reduced Motion */
@@ -176,5 +189,22 @@ html.has-custom-cursor *::after {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Desktop-Only Cat Features: Strictly hidden on mobile, tablet, and touch-first devices */
+.desktop-cat-feature {
+  display: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .desktop-cat-feature {
+    display: block !important;
+  }
+  .desktop-cat-feature-flex {
+    display: flex !important;
+  }
+  .desktop-cat-feature-inline {
+    display: inline-flex !important;
   }
 }

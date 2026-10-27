@@ -14,18 +14,18 @@ export const ProjectGrid: React.FC = () => {
   };
 
   return (
-    <section id="work" className="relative w-full bg-[#EAE6DE] dark:bg-[#12171E] py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 border-y border-[#D8D2C5] dark:border-[#202833] overflow-hidden transition-colors duration-200">
+    <section id="work" className="relative w-full bg-[#EFD0DC]/55 dark:bg-[#291D26]/70 py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 border-y border-[#E3B9CA] dark:border-[#543746] overflow-hidden transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-8 sm:space-y-10 relative z-10">
         {/* Section Header */}
         <SectionHeader
-          number="01"
+          number="03"
           label="SELECTED WORK"
           titleNormal="Featured"
           titleItalic="projects."
-          description="Curated engineering projects built across educational platforms, healthcare assistants, and full-stack privacy visualizers."
+          description="Curated engineering projects built across voice evaluation frameworks, educational platforms, healthcare assistants, and full-stack privacy visualizers."
           actionText="View all work"
           actionHref="https://github.com/laggincodes"
-          numberColor="text-[#397FCC] dark:text-[#5DA9FF]"
+          numberColor="text-[#9E526F] dark:text-[#E8A0BA]"
         />
 
         {/* 2-Column Responsive Editorial Project Gallery */}

@@ -23,12 +23,12 @@ export const Contact: React.FC = () => {
   }, []);
 
   return (
-    <section id="contact" className="relative w-full bg-[#E5E8EC] dark:bg-[#11161D] pt-20 sm:pt-24 md:pt-32 pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-t border-[#D8D2C5] dark:border-[#262E38] transition-colors duration-200">
+    <section id="contact" className="relative w-full bg-[#F3DCE5] dark:bg-[#211820] pt-20 sm:pt-24 md:pt-32 pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-t border-[#E3B9CA] dark:border-[#543746] transition-colors duration-200">
       <div className="max-w-[1200px] mx-auto space-y-12 sm:space-y-16 relative z-10">
         {/* Eyebrow Label */}
-        <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.25em] text-[#555C66] dark:text-[#9EA3AC]">
-          <span className="text-[#1D9AA2] dark:text-[#35C7D0] font-semibold">05</span>
-          <span className="text-[#D8D2C5] dark:text-[#262E38]">/</span>
+        <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.25em] text-[#725965] dark:text-[#C6AFBB]">
+          <span className="text-[#9E526F] dark:text-[#E8A0BA] font-semibold">07</span>
+          <span className="text-[#E3B9CA] dark:text-[#543746]">/</span>
           <span>CONTACT</span>
         </div>
 
@@ -36,14 +36,14 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-start">
           {/* Left Column: Large Editorial Heading, Narrative & Primary CTA (6 cols) */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold text-[#171A1D] dark:text-[#EDEDED] leading-[0.95] tracking-tight">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold text-[#30212A] dark:text-[#F7EAF0] leading-[0.95] tracking-tight">
               Let's build{' '}
-              <span className="font-display italic block sm:inline font-normal text-[#171A1D] dark:text-[#EDEDED]">
+              <span className="font-display italic block sm:inline font-normal text-[#9E526F] dark:text-[#E8A0BA]">
                 something.
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#555C66] dark:text-[#9EA3AC] font-normal leading-relaxed max-w-md">
+            <p className="text-base sm:text-lg text-[#725965] dark:text-[#C6AFBB] font-normal leading-relaxed max-w-md">
               Have an idea, opportunity, internship, collaboration, or interesting problem?
             </p>
 
@@ -51,83 +51,83 @@ export const Contact: React.FC = () => {
             <div className="pt-2">
               <a
                 href="mailto:yathusaini10@gmail.com"
-                className="min-h-[44px] group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#171A1D] dark:bg-[#EDEDED] text-[#F1EEE7] dark:text-[#0D1014] font-medium text-xs sm:text-sm transition-all duration-300 hover:bg-[#252C36] dark:hover:bg-white shadow-xs cursor-pointer"
+                className="min-h-[44px] group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#30212A] dark:bg-[#F7EAF0] text-[#FBEAF0] dark:text-[#211820] font-medium text-xs sm:text-sm transition-all duration-300 hover:bg-[#9E526F] dark:hover:bg-[#E8A0BA] shadow-xs cursor-pointer"
               >
                 <span>Say hello</span>
-                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C57D28] dark:text-[#E7A85B]" />
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#D98BA8] dark:text-[#BD718F]" />
               </a>
             </div>
           </div>
 
           {/* Right Column: Clean Vertical Action Rows with Vector Icons (6 cols) */}
-          <div className="lg:col-span-6 w-full space-y-0 divide-y divide-[#D8D2C5] dark:divide-[#262E38] border-y border-[#D8D2C5] dark:border-[#262E38]">
-            {/* Row 1: Email (Cyan) */}
+          <div className="lg:col-span-6 w-full space-y-0 divide-y divide-[#E3B9CA] dark:divide-[#543746] border-y border-[#E3B9CA] dark:border-[#543746]">
+            {/* Row 1: Email (Rose) */}
             <a
               href="mailto:yathusaini10@gmail.com"
-              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#EFD0DC]/70 dark:hover:bg-[#30212C] px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <Mail size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors shrink-0 mt-0.5" />
+                <Mail size={18} className="text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] uppercase tracking-widest block transition-colors">
+                  <span className="text-[10px] font-mono text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] uppercase tracking-widest block transition-colors">
                     EMAIL
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#30212A] dark:text-[#F7EAF0] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-colors block truncate">
                     yathusaini10@gmail.com
                   </span>
                 </div>
               </div>
 
-              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#1D9AA2] dark:group-hover:border-[#35C7D0] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#1D9AA2] dark:group-hover:text-[#35C7D0] transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#1D9AA2] dark:text-[#35C7D0]" />
+              <div className="w-9 h-9 rounded-full border border-[#E3B9CA] dark:border-[#543746] bg-[#F8E6ED] dark:bg-[#30212C] group-hover:border-[#D98BA8] dark:group-hover:border-[#E8A0BA] flex items-center justify-center text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#9E526F] dark:text-[#E8A0BA]" />
               </div>
             </a>
 
-            {/* Row 2: GitHub (Amber) */}
+            {/* Row 2: GitHub (Blush) */}
             <a
               href="https://github.com/laggincodes"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#EFD0DC]/70 dark:hover:bg-[#30212C] px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <GithubIcon size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-colors shrink-0 mt-0.5" />
+                <GithubIcon size={18} className="text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#C87998] dark:group-hover:text-[#D98AA9] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] uppercase tracking-widest block transition-colors">
+                  <span className="text-[10px] font-mono text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#C87998] dark:group-hover:text-[#D98AA9] uppercase tracking-widest block transition-colors">
                     GITHUB
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#30212A] dark:text-[#F7EAF0] group-hover:text-[#C87998] dark:group-hover:text-[#D98AA9] transition-colors block truncate">
                     @laggincodes
                   </span>
                 </div>
               </div>
 
-              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#C57D28] dark:group-hover:border-[#E7A85B] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#C57D28] dark:group-hover:text-[#E7A85B] transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C57D28] dark:text-[#E7A85B]" />
+              <div className="w-9 h-9 rounded-full border border-[#E3B9CA] dark:border-[#543746] bg-[#F8E6ED] dark:bg-[#30212C] group-hover:border-[#D98BA8] dark:group-hover:border-[#D98AA9] flex items-center justify-center text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#C87998] dark:group-hover:text-[#D98AA9] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C87998] dark:text-[#D98AA9]" />
               </div>
             </a>
 
-            {/* Row 3: LinkedIn (Violet) */}
+            {/* Row 3: LinkedIn (Mauve) */}
             <a
               href="https://www.linkedin.com/in/yatharth-saini-6bb584389"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#DDD9D0]/60 dark:hover:bg-[#181F28]/60 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
+              className="group flex items-center justify-between py-5 sm:py-6 transition-colors hover:bg-[#EFD0DC]/70 dark:hover:bg-[#30212C] px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-lg"
             >
               <div className="flex items-start gap-4 transition-transform duration-300 group-hover:translate-x-1 min-w-0 flex-1 pr-3">
-                <LinkedinIcon size={18} className="text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-colors shrink-0 mt-0.5" />
+                <LinkedinIcon size={18} className="text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-colors shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0 flex-1">
-                  <span className="text-[10px] font-mono text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] uppercase tracking-widest block transition-colors">
+                  <span className="text-[10px] font-mono text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] uppercase tracking-widest block transition-colors">
                     LINKEDIN
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#171A1D] dark:text-[#EDEDED] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-colors block truncate">
+                  <span className="text-base sm:text-lg md:text-xl font-normal text-[#30212A] dark:text-[#F7EAF0] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-colors block truncate">
                     Yatharth Saini
                   </span>
                 </div>
               </div>
 
-              <div className="w-9 h-9 rounded-full border border-[#D8D2C5] dark:border-[#262E38] bg-[#F1EEE7] dark:bg-[#161B23] group-hover:border-[#6C5CE7] dark:group-hover:border-[#9A8CFF] flex items-center justify-center text-[#555C66] dark:text-[#9EA3AC] group-hover:text-[#6C5CE7] dark:group-hover:text-[#9A8CFF] transition-all duration-300 shadow-xs shrink-0">
-                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#6C5CE7] dark:text-[#9A8CFF]" />
+              <div className="w-9 h-9 rounded-full border border-[#E3B9CA] dark:border-[#543746] bg-[#F8E6ED] dark:bg-[#30212C] group-hover:border-[#D98BA8] dark:group-hover:border-[#E8A0BA] flex items-center justify-center text-[#725965] dark:text-[#C6AFBB] group-hover:text-[#9E526F] dark:group-hover:text-[#E8A0BA] transition-all duration-300 shadow-xs shrink-0">
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#9E526F] dark:text-[#E8A0BA]" />
               </div>
             </a>
           </div>
@@ -135,11 +135,11 @@ export const Contact: React.FC = () => {
       </div>
 
       {/* Infinite Horizontal GSAP Marquee Banner */}
-      <div className="w-full overflow-hidden pt-20 sm:pt-24 pb-8 select-none opacity-60">
-        <div ref={marqueeRef} className="flex whitespace-nowrap text-xs md:text-sm font-mono uppercase tracking-[0.4em] text-[#555C66] dark:text-[#9EA3AC]">
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> FULL-STACK APPS <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> SOFTWARE SYSTEMS <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> HEALTHCARE AI <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> FULL-STACK APPS <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> SOFTWARE SYSTEMS <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> HEALTHCARE AI <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
-          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#3272CB] dark:text-[#6FA8FF]">•</span> AI PRODUCTS <span className="text-[#6C5CE7] dark:text-[#9A8CFF]">•</span> FULL-STACK APPS <span className="text-[#1D9AA2] dark:text-[#35C7D0]">•</span> SOFTWARE SYSTEMS <span className="text-[#C57D28] dark:text-[#E7A85B]">•</span> HEALTHCARE AI <span className="text-[#2E885E] dark:text-[#72C7A0]">•</span></span>
+      <div className="w-full overflow-hidden pt-20 sm:pt-24 pb-8 select-none opacity-70">
+        <div ref={marqueeRef} className="flex whitespace-nowrap text-xs md:text-sm font-mono uppercase tracking-[0.4em] text-[#725965] dark:text-[#C6AFBB]">
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#D98BA8]">•</span> AI SYSTEMS <span className="text-[#C87998]">•</span> FULL-STACK APPS <span className="text-[#9E526F] dark:text-[#E8A0BA]">•</span> VOICE BENCHMARKS <span className="text-[#D98BA8]">•</span> EVALUATION HARNESS <span className="text-[#C87998]">•</span></span>
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#D98BA8]">•</span> AI SYSTEMS <span className="text-[#C87998]">•</span> FULL-STACK APPS <span className="text-[#9E526F] dark:text-[#E8A0BA]">•</span> VOICE BENCHMARKS <span className="text-[#D98BA8]">•</span> EVALUATION HARNESS <span className="text-[#C87998]">•</span></span>
+          <span className="mr-8">BUILDING THE FUTURE <span className="text-[#D98BA8]">•</span> AI SYSTEMS <span className="text-[#C87998]">•</span> FULL-STACK APPS <span className="text-[#9E526F] dark:text-[#E8A0BA]">•</span> VOICE BENCHMARKS <span className="text-[#D98BA8]">•</span> EVALUATION HARNESS <span className="text-[#C87998]">•</span></span>
         </div>
       </div>
     </section>
